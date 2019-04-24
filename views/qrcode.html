@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>NECO System</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css" media="screen">
+    </head>
+    <body>
+        {% include "navbar.html" %}
+
+        <div class="container">
+            <h1>Scan this code</h1>
+
+            <p>このQRコードをスキャンして出席を送信してください。</p>
+            
+            {% load static %}
+            <img src="{% static qr_image %}" />
+
+            {% if is_debug %}
+                <h2><a href="{{ url }}">{{ url }}</a></h2>
+            {% else %}
+                <h2>or access  => <a href="{{ url }}">{{ url }}</a></h2>
+            {% endif %}
+        </div>
+        {% include "script.html" %}
+    </body>
+</html>

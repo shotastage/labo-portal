@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>NECO Attend</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css" media="screen">
+    </head>
+    <body>
+        <div class="container">
+            <h1>出欠</h1>
+            <form method="post" action="/atd/" name="send_attend">{% csrf_token %}
+            <div class="form-group">
+                <label class="col-form-label col-form-label-lg" for="inputLarge">ログイン名</label>
+                <input name="mtg_id" type="text" value={{ mtg_id }} hidden>
+                <input id="bw_id" name="bw_id" type="text" hidden>
+
+                <input id="login_name" name="dwqd2nj2" class="form-control form-control-lg" type="text" placeholder="ex. shotan" id="inputLarge">
+                <p></p>
+                <button type="submit" id="submit" class="btn btn-warning btn-lg btn-block">送信</button>
+            </div>
+            <form>
+        </div>
+
+        <script>
+        var form = document.getElementById('login_name');
+        var submit = document.getElementById('submit');
+        var bwid = document.getElementById('bw_id);
+
+
+        var bw_id = "";
+
+
+        function getBwID() {
+            var l = 25;
+            var c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+            var cl = c.length;
+            var r = "";
+            for(var i=0; i<l; i++){
+                r += c[Math.floor(Math.random()*cl)];
+            }
+
+            return r
+        }
+
+        (window.onload = function() {
+            var login_name = localStorage.getItem("login_name");
+            bw_id = localStorage.getItem("bw_id");
+
+            if (bw_id) {
+                bw_id = getBwID();
+            }
+
+            if (login_name) {
+                form.value = login_name;
+            }
+        })();
+        submit.addEventListener('click', function() {
+            localStorage.setItem('bw_id', bw_id);
+            localStorage.setItem('login_name', form.value);
+            bwid.value = bw_id;
+
+            document.send_attend.submit();
+        });
+        </script>
+        {% include "script.html" %}
+    </body>
+</html>

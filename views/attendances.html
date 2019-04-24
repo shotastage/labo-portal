@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>NECO Attend</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css" media="screen">
+    </head>
+    <body>
+        {% include "navbar.html" %}
+
+        <div class="container">
+            <h1>第{{ no }}回MTG 出席者</h1>
+
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">ログイン名</th>
+                  <th scope="col">発表有無</th>
+                  <th scope="col">備考</th>
+                  <th scope="col">操作メニュー</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for user in list %}
+                <tr class="table-light">
+              
+
+                  <th scope="row">{{ user.login }}</th>
+                  <td>
+                    {% if user.is_presentationed %}
+                      <span class="badge badge-success">発表済</span>
+                    {% else %}
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if user.description != "No Description" %}
+                      {{ user.description }}
+                    {% else %}
+                      なし
+                    {% endif %}
+                  </td>
+                  <td>
+                    <a href="/kgl/record_presentation_status/?mtg_id={{ mtg_id }}&login={{ user.login}}" class="btn btn-primary">発表登録</a>
+                    <a href="/kgl/attendance_delete/?mtg_id={{ mtg_id }}&login={{ user.login}}" class="btn btn-danger">出席取り消し</a>
+                  </td>
+                </tr>
+                {% empty %}
+                  <p></p>
+                  <h1>この回には誰も出席していません😂</h1>
+                {% endfor %}
+              </tbody>
+            </table> 
+        </div>
+        {% include "script.html" %}
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>NECO System</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css" media="screen">
+    </head>
+    <body>
+        {% include "navbar.html" %}
+
+        <div class="container">
+            <h1 style="margin-bottom: 2rem; margin-top: 1rem;">NECO System</h1>
+
+            {% for data in table_data %}
+                {% if data.is_warning %}
+                    <div class="card border-danger text-white bg-danger mb-3">
+                {% elif data.is_highlight %}
+                    <div class="card border-info text-white bg-info mb-3">
+                {% else %}
+                    <div class="card border-primary mb-3">
+                {% endif %}
+                
+                    <div class="card-header">お知らせ</div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ data.title }}</h4>
+                        <p class="card-text">{{ data.get_message_as_markdown }}</p>
+                    </div>
+                </div>
+            {% empty %}
+                <h2>お知らせはありません</h2>
+            {% endfor %}
+        
+        </div>
+
+        {% include "script.html" %}
+    </body>
+</html>

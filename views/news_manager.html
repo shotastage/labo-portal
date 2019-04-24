@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>NECO Attend</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css" media="screen">
+    </head>
+    <body>
+        {% include "navbar.html" %}
+
+        <div class="container">
+            <h1>KGL Admin</h1>
+            <div class="form-group">
+                <a href="create/" class="btn btn-warning btn-lg btn-block">新規ミーティング作成</a>
+            </div>
+
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">回数</th>
+                  <th scope="col">Meeting ID</th>
+                  <th scope="col">操作メニュー</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for data in table_data %}
+
+                {% if data.active %}
+                <tr class="table-primary">
+                {% else %}
+                <tr class="table-light">
+                {% endif %}
+
+                  <th scope="row">{{ data.time }}</th>
+                  <td>{{ data.mtg_id }}</td>
+                  <td>
+                    <a href="show_qr/?mtg_id={{ data.mtg_id }}" class="btn btn-success">QR 表示</a>
+                    <a href="attendances/?mtg_id{{ data.mtg_id }}" class="btn btn-warning">出席者一覧</a>
+                    <a href="disable/?time={{ data.time }}" class="btn btn-danger">〆切</a>
+                  </td>
+                </tr>
+                {% empty %}
+                  <p>No meeting</p>
+                {% endfor %}
+              </tbody>
+            </table> 
+        </div>
+        {% include "script.html" %}
+    </body>
+</html>
