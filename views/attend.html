@@ -26,10 +26,10 @@
         <script>
         var form = document.getElementById('login_name');
         var submit = document.getElementById('submit');
-        var bwid = document.getElementById('bw_id);
+        var bwid = document.getElementById('bw_id');
 
 
-        var bw_id = "";
+        var bw_id = "defualt_id";
 
 
         function getBwID() {
@@ -38,7 +38,7 @@
 
             var cl = c.length;
             var r = "";
-            for(var i=0; i<l; i++){
+            for(var i = 0; i < l; i++){
                 r += c[Math.floor(Math.random()*cl)];
             }
 
