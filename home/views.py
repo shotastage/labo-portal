@@ -125,6 +125,7 @@ class AttendanceView(View):
         atd = Attendances(
             login=login_name,
             mtg_id=mtg_id,
+            bw_id=bw_id,
             ip_address=ip,
             attend=True
         )
