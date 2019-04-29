@@ -57,7 +57,7 @@ class AttendanceView(View):
             context = {
                 'is_error': True,
                 'error_title': "エラー",
-                'error_desc': "不正な出席IDです. もう一度QRコードをスキャンしてください."
+                'error_desc': "ミーティングIDを確認できませんでした. もう一度QRコードをスキャンして出席してください."
             }
 
             return render(request, "result.html", context)
