@@ -1,6 +1,6 @@
-# necoattend
+# Teachbox
 
-NECO attendance system.
+Teacher web system for efficient wonderful lesson
 
 # Info
 Information of development environment.
