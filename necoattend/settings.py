@@ -59,6 +59,7 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
+    'enrollment.apps.EnrollmentConfig',
     'bgport.apps.BgportConfig',
     'news.apps.NewsConfig',
     'manager.apps.ManagerConfig',
