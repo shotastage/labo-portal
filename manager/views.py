@@ -73,11 +73,11 @@ class AttendacesListView(View):
         
         mtg_id = request.GET.get("mtg_id")
 
-        #mtg = Meetings.objects.get(time=time)
+        mtg = Meetings.objects.get(mtg_id=mtg_id)
         data = Attendances.objects.filter(mtg_id=mtg_id)
 
         context = {
-            'no': 1,
+            'no': mtg.time,
             'list': data,
             'mtg_id': mtg_id
         }
