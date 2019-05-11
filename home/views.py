@@ -20,6 +20,7 @@ class HomeView(View):
         data = News.objects.all().order_by('priority')
 
         context = {
+            'app_name': settings.APPLICATION_NAME,
             'page_title': "Home",
             'table_data': data,
         }
