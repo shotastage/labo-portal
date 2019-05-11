@@ -5,13 +5,13 @@
         {% include "navbar.html" %}
 
         <div class="container">
-            <h1 style="margin-bottom: 2rem; margin-top: 1rem;">{{ app_name }}</h1>
+            <h1 style="margin-bottom: 2rem; margin-top: 1rem;">{{ app_name }} Field</h1>
 
             {% for data in table_data %}
                 {% if data.is_warning %}
                     <div class="card border-danger text-white bg-danger mb-3">
                 {% elif data.is_highlight %}
-                    <div class="card border-info text-white bg-info mb-3">
+                    <div class="card border-primary text-white bg-primary mb-3">
                 {% else %}
                     <div class="card border-primary mb-3">
                 {% endif %}
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             {% empty %}
-                <h2>お知らせはありません</h2>
+                <h2>コンテンツがありません</h2>
             {% endfor %}
         
         </div>
