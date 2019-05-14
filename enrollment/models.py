@@ -7,6 +7,7 @@ from django.dispatch import receiver
 class Member(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     grade = models.CharField(max_length = 255)
+    browser_id = models.CharField(max_length = 255, null=True)
 
 @receiver(post_save, sender=User)
 def create_user_member(sender, instance, created, **kwargs):

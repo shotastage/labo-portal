@@ -14,8 +14,6 @@ import os
 from necoattend.db_secret import database_setting
 
 
-
-
 try:
     RUNNING_MODE = os.environ["NSYS_RUNNING_MODE"]
 except:
@@ -71,6 +69,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'rest_framework',
 ]
 
 MIDDLEWARE = [

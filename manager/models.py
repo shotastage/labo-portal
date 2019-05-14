@@ -10,6 +10,13 @@ def get_next():
  
 
 class Meetings(models.Model):
-  time = models.IntegerField(default=get_next)
   mtg_id = models.CharField(max_length = 255)
+  time = models.IntegerField(default=get_next)
   active = models.BooleanField(default=True)
+  #attended_student = {}
+
+
+class Attendances(models.Model):
+  mtg_id = models.CharField(max_length = 255)
+  login_name = models.CharField(max_length = 255)
+  attend = models.BooleanField()
