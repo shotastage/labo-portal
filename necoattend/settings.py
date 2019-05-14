@@ -58,6 +58,7 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
+    'field.apps.FieldConfig',
     'enrollment.apps.EnrollmentConfig',
     'bgport.apps.BgportConfig',
     'news.apps.NewsConfig',
