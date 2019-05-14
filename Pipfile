@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 django-mirage = "*"
+pylint = "*"
 
 [packages]
 qrcode = "*"
