@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% include "head.html" %}
+    {% include "./head.html" %}
     <body>
-        {% include "navbar.html" %}
+        {% include "./navbar.html" %}
 
         <div class="container">
-            <h1>Scan this code</h1>
-
-            <p>このQRコードをスキャンして出席を送信してください。</p>
+            <h1>QRコードをスキャンして出席してください</h1>
             
             {% load static %}
             <img src="{% static qr_image %}" />
@@ -38,6 +36,7 @@
                 </div>
            
         </div>
-        {% include "script.html" %}
+            {% include "./script.html" %}
+
     </body>
 </html>

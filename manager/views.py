@@ -25,12 +25,12 @@ class ManageView(View):
             'table_data': data,
         }
 
-        return render(request, "manager.html", context)
+        return render(request, "htmlfile/manager.html", context)
 
     @method_decorator(login_required)
     def post(self, request):
 
-        return render(request,'manager.html')
+        return render(request,'htmlfile/manager.html')
 
 
 class MeetingCreateView(View):
@@ -82,7 +82,7 @@ class AttendacesListView(View):
             'mtg_id': mtg_id
         }
 
-        return render(request,'attendances.html', context)
+        return render(request,'htmlfile/attendances.html', context)
 
 
 
@@ -139,4 +139,4 @@ class QRShowView(View):
             'is_debug': settings.DEBUG
         }
 
-        return render(request,'qrcode.html', context)
+        return render(request,'htmlfile/qrcode.html', context)

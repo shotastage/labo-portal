@@ -25,7 +25,7 @@ class HomeView(View):
             'table_data': data,
         }
 
-        return render(request, "home.html", context)
+        return render(request, "htmlfile/home.html", context)
 
 
 
@@ -42,7 +42,7 @@ class AttendanceView(View):
             'list': attendance_list
         }
 
-        return render(request, "attend.html", context)
+        return render(request, "htmlfile/attend.html", context)
 
 
     def post(self, request):
@@ -61,7 +61,7 @@ class AttendanceView(View):
                 'error_desc': "ミーティングIDを確認できませんでした. もう一度QRコードをスキャンして出席してください."
             }
 
-            return render(request, "result.html", context)
+            return render(request, "htmlfile/result.html", context)
     
 
         # Get device IP
@@ -87,7 +87,7 @@ class AttendanceView(View):
                 'error_desc': "このミーティングの出席はすでに締め切られています."
             }
 
-            return render(request, "result.html", context)
+            return render(request, "htmlfile/result.html", context)
 
         for atd in recent_atd:
 
@@ -98,7 +98,7 @@ class AttendanceView(View):
                     'error_desc': "同一の端末から複数の異なる出席情報を提出することはできません."
                 }
 
-                return render(request, "result.html", context)
+                return render(request, "htmlfile/result.html", context)
 
 
             if atd.login == login_name:
@@ -108,7 +108,7 @@ class AttendanceView(View):
                     'error_desc': "すでに出席情報が記録されています."
                 }
 
-                return render(request, "result.html", context)
+                return render(request, "htmlfile/result.html", context)
 
             if settings.RUNNING_MODE == "devel":
                 pass
@@ -120,7 +120,7 @@ class AttendanceView(View):
                         'error_desc': "同じIP(端末)からの出欠登録は１回のみです."
                     }
 
-                    return render(request, "result.html", context)
+                    return render(request, "htmlfile/result.html", context)
 
         # Record DB
         atd = Attendances(
@@ -133,4 +133,4 @@ class AttendanceView(View):
 
         atd.save()
 
-        return render(request, "result.html", context)
+        return render(request, "htmlfile/result.html", context)

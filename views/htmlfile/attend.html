@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% include "head.html" %}
+    {% include "./head.html" %}
     <body>
         <div class="container">
             <h1>出欠</h1>
@@ -16,6 +16,9 @@
             </div>
             <form>
         </div>
+
+
+        {% include "./script.html" %}
 
         <script>
         var form = document.getElementById('login_name');
@@ -61,6 +64,6 @@
             document.send_attend.submit();
         });
         </script>
-        {% include "script.html" %}
+
     </body>
 </html>
