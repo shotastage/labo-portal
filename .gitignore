@@ -220,4 +220,5 @@ tmp/
 
 *.png
 
-.vscode
+.vscode/
+
