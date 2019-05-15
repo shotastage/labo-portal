@@ -181,6 +181,7 @@ if RUNNING_MODE == "devel":
     os.path.join('frontend', 'generates'),
     )
 else:
-    STATIC_ROOT = os.path.join('frontend', 'dist', 'static')
-    STATICFILES_DIRS = []
+    STATICFILES_DIRS = (os.path.join('frontend', 'dist', 'static'),
+    os.path.join('frontend', 'generates'),
+    )
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
