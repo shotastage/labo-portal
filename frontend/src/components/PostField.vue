@@ -78,10 +78,10 @@ export default {
         console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         
         axios.post('/api/fields/create/', {
-          title: title,
-          text: text,
-          content_type: "html",
-          created_by: "unkown"
+          "title": title,
+          "text": text,
+          "content_type": "html",
+          "created_by": "unkown"
         })
         
       }
