@@ -81,7 +81,7 @@ export default {
           "title": title,
           "text": text,
           "content_type": "html",
-          "created_by": "unkown"
+          "created_by": "ログインしていないユーザー"
         })
         
       }
