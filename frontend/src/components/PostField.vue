@@ -77,7 +77,7 @@ export default {
 
         console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         
-        axios.post('/api/fields/', {
+        axios.post('/api/fields/create/', {
           title: title,
           text: text,
           content_type: "html",
