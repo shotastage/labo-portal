@@ -79,7 +79,7 @@ export default {
           title: article_title,
           text: article_text,
           content_type: "html",
-          created_by: "unkown"
+          created_by: "匿名"
         }, {
           headers: {'Content-Type': 'application/json'}
         }) 

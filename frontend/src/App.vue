@@ -35,8 +35,6 @@
 
 
 
-
-
     <v-footer class="pa-3">
       <v-spacer></v-spacer>
       <div>&copy; {{ new Date().getFullYear() }} Shota Shimazu</div>
@@ -69,12 +67,12 @@ export default {
   mounted: function () {
     console.log('mounted')
     axios.get('/api/fields/')
-      .then((response) => {
+    .then((response) => {
         this.fieldList = response.data
-      })
-      .catch((error) => {
+    })
+    .catch((error) => {
         console.log(error)
-      })
+    })
   }
 }
 </script>
