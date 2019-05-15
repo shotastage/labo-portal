@@ -72,18 +72,17 @@ export default {
       dialog: false
     }),
     methods: {
-      postArticle: function(title, text) {
-        //dialog = false
-
-        console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        
+      postArticle: function(article_title, article_text) {
+        axios.defaults.xsrfCookieName = 'csrftoken';
+        axios.defaults.xsrfHeaderName = 'X-CSRFToken';
         axios.post('/api/fields/create/', {
-          "title": title,
-          "text": text,
-          "content_type": "html",
-          "created_by": "ログインしていないユーザー"
-        })
-        
+          title: article_title,
+          text: article_text,
+          content_type: "html",
+          created_by: "unkown"
+        }, {
+          headers: {'Content-Type': 'application/json'}
+        }) 
       }
     }
 }
