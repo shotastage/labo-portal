@@ -25,7 +25,7 @@ class HomeView(View):
             'table_data': data,
         }
 
-        return render(request, "orc-view/dist/index.html", context)
+        return render(request, "htmlfile/home.html", context)
 
 
 

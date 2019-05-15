@@ -26,12 +26,12 @@
               
             </v-layout>
           </v-container>
-          <small>*indicates required field</small>
+          <small>* この機能は実験中です...</small>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" flat @click="dialog = false">キャンセル</v-btn>
-          <v-btn color="blue darken-1" flat @click="dialog = false">投稿</v-btn>
+          <v-btn color="blue darken-1 warning" @click="dialog = false">投稿</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -42,7 +42,8 @@
 
 <style scoped>
 .floating_button {
-  position: absolute;
+  z-index: 10;
+  position: fixed;
   bottom: 40px;
   right: 40px;
 }

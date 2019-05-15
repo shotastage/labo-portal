@@ -177,7 +177,9 @@ STATIC_URL = '/static/'
 
 if RUNNING_MODE == "devel":
     #STATIC_ROOT = os.path.join('frontend', 'dist', 'static')
-    STATICFILES_DIRS = [os.path.join('frontend', 'dist', 'static')]
+    STATICFILES_DIRS = (os.path.join('frontend', 'dist', 'static'),
+    os.path.join('frontend', 'generates'),
+    )
 else:
     STATIC_ROOT = os.path.join('frontend', 'dist', 'static')
     STATICFILES_DIRS = []

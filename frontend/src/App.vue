@@ -11,22 +11,25 @@
     </v-toolbar-items>
   </v-toolbar>
 
+  <div style="height:80px;"></div>
+  <div>
+    <v-btn href="/recent_home/" color="error">以前のバージョンに戻す</v-btn>
+  </div>
 
 
   <PostField/>
 
-  <v-container grid-list-md>
-    <v-layout row>
-    </v-layout>
-    <v-layout row wrap>
-      <TimeLine/>
-    </v-layout>
-    <v-layout row wrap>
-      <TimeLine/>
-    </v-layout>
-    <v-layout row wrap>
-      <TimeLine/>
-    </v-layout>
+  <v-container fluid grid-list-md>
+
+    <div v-for="field in fieldList" :key="field">
+      <v-layout row wrap justify-space-around>
+        <v-flex>
+          <TimeLine v-bind:content="field"/>
+        </v-flex>
+      </v-layout>
+    </div>
+
+   
   </v-container>
 
 
@@ -47,6 +50,7 @@ import HelloWorld from './components/HelloWorld'
 import PostField from './components/PostField'
 import TimeLine from './components/TimeLine'
 import AppMenu from './components/AppMenu'
+import axios from 'axios'
 
 
 export default {
@@ -54,12 +58,25 @@ export default {
   components: {
     HelloWorld,
     PostField,
-    AppMenu
+    AppMenu,
+    TimeLine
   },
   data () {
     return {
-      //
+      fieldList: [{title: "テストデータ", text: "これはテスト文章です。", created_by: "@testuser"},
+                  {title: "テストデータ", text: "これはテスト文章です。", created_by: "@testuser"},
+                  {title: "テストデータ", text: "これはテスト文章です。", created_by: "@testuser"}]
     }
+  },
+  mounted: function () {
+    console.log('mounted')
+    axios.get('/api/fields/')
+      .then((response) => {
+        this.fieldList = response.data
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 }
 </script>

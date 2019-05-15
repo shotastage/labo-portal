@@ -14,11 +14,11 @@
                 >
                     mdi-twitter
                 </v-icon>
-                <span class="title font-weight-light">Notification</span>
+                <span class="title font-weight-light">{{ content.title }}</span>
             </v-card-title>
 
             <v-card-text class="headline font-weight-bold">
-                "今日のMTGはε11で行います."
+                "{{ content.text }}"
             </v-card-text>
 
             <v-card-actions>
@@ -31,7 +31,7 @@
                     </v-list-tile-avatar>
 
                     <v-list-tile-content>
-                        <v-list-tile-title>Shota Shimazu</v-list-tile-title>
+                        <v-list-tile-title>{{ content.created_by }}</v-list-tile-title>
                     </v-list-tile-content>
 
                     <v-layout
@@ -51,7 +51,12 @@
 </v-layout>    
 
 
-
-
-
 </template>
+
+
+<script>
+export default {
+  name: 'TimeLine',
+  props: ['content']
+}
+</script>

@@ -131,7 +131,7 @@ class QRShowView(View):
             url = "http://localhost:8000/atd/?mtg_id=" + mtg_id
 
         img=qrcode.make(url)
-        img.save('static/qrcode_' + mtg_id + '.png')
+        img.save('frontend/generates/qrcode_' + mtg_id + '.png')
 
         context = {
             'qr_image': 'qrcode_' + mtg_id + '.png',
