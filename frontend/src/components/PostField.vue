@@ -23,6 +23,7 @@
                     placeholder=""
                     label="タイトル"
                     solo
+                    lazy
                   ></v-text-field>
                 </v-flex>
 
@@ -32,6 +33,7 @@
                   name="input-7-4"
                   label="新しい投稿"
                   value=""
+                  lazy
                 ></v-textarea>           
             </v-layout>
           </v-container>
@@ -40,7 +42,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" flat @click="dialog = false">キャンセル</v-btn>
-          <v-btn color="blue darken-1 warning" @click="dialog = false">投稿</v-btn>
+          <v-btn color="blue darken-1 warning" @click="postArticle(post_title, post_text); dialog = false">投稿</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -65,17 +67,24 @@ import axios from 'axios'
 
 export default {
     data: () => ({
-      dialog: false,
-      post_title: post_title,
-      post_text: post_text
+      title: "",
+      text: "",
+      dialog: false
     }),
-    mounted: function () {
-      axios.post('/api/fields/', {
-      title: post_title,
-      text: post_text,
-      content_type: "html",
-      created_by: "unkown"
-    });
-  }
+    methods: {
+      postArticle: function(title, text) {
+        //dialog = false
+
+        console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        
+        axios.post('/api/fields/', {
+          title: title,
+          text: text,
+          content_type: "html",
+          created_by: "unkown"
+        })
+        
+      }
+    }
 }
 </script>
