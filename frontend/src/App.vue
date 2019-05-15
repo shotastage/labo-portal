@@ -63,9 +63,7 @@ export default {
   },
   data () {
     return {
-      fieldList: [{title: "テストデータ", text: "これはテスト文章です。", created_by: "@testuser"},
-                  {title: "テストデータ", text: "これはテスト文章です。", created_by: "@testuser"},
-                  {title: "テストデータ", text: "これはテスト文章です。", created_by: "@testuser"}]
+      fieldList: []
     }
   },
   mounted: function () {
