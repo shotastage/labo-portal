@@ -20,8 +20,8 @@ from app.views import index_view
 
 urlpatterns = [
     path('', include('app.urls')),
-
     path('', include('home.urls')),
+    path('api-auth/', include('rest_framework.urls')),
     path('api/', include('field.urls')),
     path('kgl/', include('manager.urls')),
     path('kg/', include('enrollment.urls')),

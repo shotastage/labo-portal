@@ -8,3 +8,9 @@ class ContentListAPIView(generics.ListAPIView):
     permission_classes = (AllowAny,)
     serializer_class = ContentSerializer
     queryset = Content.objects.all()
+
+
+class ContentCreateView(generics.CreateAPIView):
+    ermission_classes = (AllowAny,)
+    serializer_class = ContentSerializer
+    queryset = Content.objects.all()

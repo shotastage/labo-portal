@@ -8,25 +8,34 @@
           </v-btn>
         </div>
       </template>
+      
+      
       <v-card>
         <v-card-title>
           <span class="headline">New Post</span>
         </v-card-title>
         <v-card-text>
           <v-container grid-list-md>
-            <v-layout wrap>
-            
-              
+            <v-layout column>
+                <v-flex>
+                  <v-text-field
+                    v-model="post_title"
+                    placeholder=""
+                    label="タイトル"
+                    solo
+                  ></v-text-field>
+                </v-flex>
+
                 <v-textarea
-          outline
-          name="input-7-4"
-          label="新しい投稿"
-          value=""
-        ></v-textarea>
-              
+                  v-model="post_text"
+                  outline
+                  name="input-7-4"
+                  label="新しい投稿"
+                  value=""
+                ></v-textarea>           
             </v-layout>
           </v-container>
-          <small>* この機能は実験中です...</small>
+          <small>* この機能はテスト中です.</small>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -51,9 +60,22 @@
 
 
 <script>
+import axios from 'axios'
+
+
 export default {
     data: () => ({
-      dialog: false
-    })
+      dialog: false,
+      post_title: post_title,
+      post_text: post_text
+    }),
+    mounted: function () {
+      axios.post('/api/fields/', {
+      title: post_title,
+      text: post_text,
+      content_type: "html",
+      created_by: "unkown"
+    });
+  }
 }
 </script>
