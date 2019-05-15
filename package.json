@@ -6,6 +6,6 @@
   "author": "Shota Shimazu <hornet.live.mf@gmail.com>",
   "license": "ISC",
   "scripts": {
-    "build": "cd frontend && yarn build"
+    "build": "cd frontend && npm install -g yarn && yarn install && yarn build"
   }
 }
