@@ -32,6 +32,7 @@ APPLICATION_NAME = "NECO"
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -55,9 +56,17 @@ else:
 
 
 
+
+print("************************************************************************************")
+print("MODE: ", RUNNING_MODE)
+print("BASE Directory: ", BASE_DIR)
+print("Static Directory: ", os.path.join(BASE_DIR, 'frontend', 'dist', 'static'))
+print("************************************************************************************")
+
 # Application definition
 
 INSTALLED_APPS = [
+    'app.apps.AppConfig',
     'field.apps.FieldConfig',
     'enrollment.apps.EnrollmentConfig',
     'bgport.apps.BgportConfig',
@@ -70,7 +79,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'rest_framework',
+    #'whitenoise.runserver_nostatic',  # < Per Whitenoise, to disable built in
+
+    'rest_framework',
+    #'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -89,7 +101,7 @@ ROOT_URLCONF = 'necoattend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['views'],
+        'DIRS': [os.path.join('frontend', 'dist'), 'views'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -97,6 +109,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.static', #ここ追加
+
             ],
         },
     },
@@ -154,13 +168,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+MIDDLEWARE_CLASSES = (
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+)
 
 STATIC_URL = '/static/'
 
+
 if RUNNING_MODE == "devel":
-    STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, "static"),
-    )
+    #STATIC_ROOT = os.path.join('frontend', 'dist', 'static')
+    STATICFILES_DIRS = [os.path.join('frontend', 'dist', 'static')]
 else:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    STATIC_ROOT = os.path.join('frontend', 'dist', 'static')
+    STATICFILES_DIRS = []
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

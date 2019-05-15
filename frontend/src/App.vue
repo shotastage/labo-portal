@@ -5,9 +5,9 @@
     <v-toolbar-title>NECO Portal</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat>Link One</v-btn>
-      <v-btn flat>Link Two</v-btn>
-      <v-btn flat>Link Three</v-btn>
+      <v-btn flat href="/kgl/">KGL</v-btn>
+      <v-btn flat href="https://sfc-rg.slack.com/app_redirect?channel=neco">Slack</v-btn>
+      <v-btn flat href="/admin/">Admin</v-btn>
     </v-toolbar-items>
   </v-toolbar>
 

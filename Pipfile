@@ -16,6 +16,7 @@ whitenoise = "*"
 django = "*"
 markdown = "*"
 djangorestframework = "*"
+django-webpack-loader = "*"
 
 [requires]
 python_version = "3.7"

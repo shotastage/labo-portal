@@ -5,6 +5,5 @@ from home.views import (
 )
 
 urlpatterns = (
-    path('', HomeView.as_view()),
     path('atd/', AttendanceView.as_view()),
 )
