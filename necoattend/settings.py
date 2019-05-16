@@ -80,7 +80,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #'whitenoise.runserver_nostatic',  # < Per Whitenoise, to disable built in
-
+    'jet.dashboard',
+    'jet',
     'rest_framework',
     #'webpack_loader',
 ]
