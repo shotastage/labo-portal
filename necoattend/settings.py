@@ -73,15 +73,14 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'manager.apps.ManagerConfig',
     'home.apps.HomeConfig',
-    'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #'whitenoise.runserver_nostatic',  # < Per Whitenoise, to disable built in
-    'jet.dashboard',
-    'jet',
+    'jet_django',
     'rest_framework',
     #'webpack_loader',
 ]

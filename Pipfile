@@ -18,7 +18,7 @@ markdown = "*"
 djangorestframework = "*"
 django-webpack-loader = "*"
 django-filter = "*"
-django-jet = "*"
+jet-django = "*"
 
 [requires]
 python_version = "3.7"

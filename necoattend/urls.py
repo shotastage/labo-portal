@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from jet_django.urls import jet_urls
+from django.conf.urls import url
 from app.views import index_view
 
 
@@ -25,7 +27,6 @@ urlpatterns = [
     path('api/', include('field.urls')),
     path('kgl/', include('manager.urls')),
     path('kg/', include('enrollment.urls')),
-    path('jet/', include(('jet.urls', 'jet'),)),  # Django JET URLS
-    path('jet/dashboard/', include(('jet.dashboard.urls', 'jet-dashboard'),)),  # Django JET dashboard URLS
-    path('admin/', include(admin.site.urls)),
+    url(r'^jet_api/', include(jet_urls)),
+    path('admin/', admin.site.urls),
 ]
