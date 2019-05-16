@@ -6,6 +6,6 @@
   "author": "Shota Shimazu <hornet.live.mf@gmail.com>",
   "license": "ISC",
   "scripts": {
-    "build": "cd frontend && npm install -g yarn @vue/cli && yarn install --production=false && yarn build"
+    "build": "cd frontend && npm install -g yarn @vue/cli && yarn install --production=false && yarn build %% yarn uninstall @vue/cli @vue/cli-plugin-babel @vue/cli-plugin-eslint @vue/cli-service babel-eslint eslint eslint-plugin-vue stylus stylus-loader vue-cli-plugin-vuetify vue-template-compiler vuetify-loader"
   }
 }
