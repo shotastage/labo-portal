@@ -25,7 +25,7 @@ urlpatterns = [
     path('api/', include('field.urls')),
     path('kgl/', include('manager.urls')),
     path('kg/', include('enrollment.urls')),
-    path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
-    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
+    path('jet/', include(('jet.urls', 'jet'),)),  # Django JET URLS
+    path('jet/dashboard/', include(('jet.dashboard.urls', 'jet-dashboard'),)),  # Django JET dashboard URLS
     path('admin/', include(admin.site.urls)),
 ]
