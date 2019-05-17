@@ -56,12 +56,12 @@ else:
 
 
 
-
-print("************************************************************************************")
-print("MODE: ", RUNNING_MODE)
-print("BASE Directory: ", BASE_DIR)
-print("Static Directory: ", os.path.join(BASE_DIR, 'frontend', 'dist', 'static'))
-print("************************************************************************************")
+if RUNNING_MODE == "devel":
+    print("************************************************************************************")
+    print("MODE: ", RUNNING_MODE)
+    print("BASE Directory: ", BASE_DIR)
+    print("Static Directory: ", os.path.join(BASE_DIR, 'frontend', 'dist', 'static'))
+    print("************************************************************************************")
 
 # Application definition
 
@@ -80,7 +80,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #'whitenoise.runserver_nostatic',  # < Per Whitenoise, to disable built in
-    'jet_django',
     'rest_framework',
     #'webpack_loader',
 ]
