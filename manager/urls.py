@@ -6,7 +6,8 @@ from manager.views import (
     QRShowView,
     AttendacesListView,
     PresentationStatusRegisterView,
-    AttendanceDeleteView
+    AttendanceDeleteView,
+    AttendanceReEnableView
 )
 
 urlpatterns = (
@@ -16,5 +17,6 @@ urlpatterns = (
     path('attendances/', AttendacesListView.as_view()),
     path('show_qr/', QRShowView.as_view()),
     path('record_presentation_status/', PresentationStatusRegisterView.as_view()),
-    path('attendance_delete/', AttendanceDeleteView.as_view())
+    path('attendance_delete/', AttendanceDeleteView.as_view()),
+    path('attendance_enable/', AttendanceReEnableView.as_view())
 )

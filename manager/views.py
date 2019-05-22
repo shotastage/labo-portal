@@ -113,9 +113,28 @@ class AttendanceDeleteView(View):
 
         mtg_id = request.GET.get("mtg_id")
 
-        Attendances.objects.filter(login=login, mtg_id=mtg_id).first().delete()
+        atd = Attendances.objects.filter(login=login, mtg_id=mtg_id).first()
+        atd.attend = False
+        atd.save()
 
         return redirect('/kgl/attendances/?mtg_id=' + mtg_id)
+
+
+
+class AttendanceReEnableView(View):
+    @method_decorator(login_required)
+    def get(self, request):
+        
+        login = request.GET.get("login")
+
+        mtg_id = request.GET.get("mtg_id")
+
+        atd = Attendances.objects.filter(login=login, mtg_id=mtg_id).first()
+        atd.attend = True
+        atd.save()
+
+        return redirect('/kgl/attendances/?mtg_id=' + mtg_id)
+
 
 
 class QRShowView(View):

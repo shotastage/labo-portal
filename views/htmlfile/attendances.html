@@ -11,7 +11,7 @@
               <thead>
                 <tr>
                   <th scope="col">ログイン名</th>
-                  <th scope="col">発表有無</th>
+                  <th scope="col">ステータス</th>
                   <th scope="col">備考</th>
                   <th scope="col">操作メニュー</th>
                 </tr>
@@ -23,6 +23,10 @@
 
                   <th scope="row">{{ user.login }}</th>
                   <td>
+                    {% if not user.attend %}
+                      <span class="badge badge-danger">欠席</span>
+                    {% endif %}
+
                     {% if user.is_presentationed %}
                       <span class="badge badge-success">発表済</span>
                     {% else %}
@@ -38,7 +42,12 @@
                   <td>
                     <a href="/kgl/record_presentation_status/?mtg_id={{ mtg_id }}&login={{ user.login}}" class="btn btn-primary">発表登録</a>
                     <button data-toggle="modal" data-target="#{{ user.login }}" class="btn btn-info">備考登録</button>
-                    <button data-toggle="modal" data-target="#del_{{ user.login }}" class="btn btn-danger">出席取り消し</button>
+
+                    {% if user.attend %}
+                      <button data-toggle="modal" data-target="#del_{{ user.login }}" class="btn btn-danger">出席取り消し</button>
+                    {% else %}
+                      <button data-toggle="modal" data-target="#enable_{{ user.login }}" class="btn btn-success">出席にする</button>
+                    {% endif %}
 
 
                     <div class="modal" id="del_{{ user.login }}">
@@ -60,7 +69,38 @@
                           </div>
                         </div>
                       </div>
+
+
+                      
                     </div>
+
+
+
+
+
+                    <div class="modal" id="enable_{{ user.login }}">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">警告</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <h2>出席を再び記録しますか？</h2>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary" data-dismiss="modal">キャンセル</button>
+                              <a class="btn btn-danger" href="/kgl/attendance_enable/?mtg_id={{ mtg_id }}&login={{ user.login }}">確認して再出席</a>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+
+
+
 
 
 
