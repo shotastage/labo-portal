@@ -11,7 +11,7 @@
     </v-toolbar-items>
   </v-toolbar>
 
-  <div style="height:180px;"></div>
+  <div style="height:100px;"></div>
 
 
    <v-layout>
@@ -105,7 +105,8 @@ export default {
           created_by: "匿名"
         }, {
           headers: {'Content-Type': 'application/json'}
-        }) 
+        })
+        
       }
     }
 }

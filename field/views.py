@@ -7,10 +7,10 @@ from .serializers import ContentSerializer
 class ContentListAPIView(generics.ListAPIView):
     permission_classes = (AllowAny,)
     serializer_class = ContentSerializer
-    queryset = Content.objects.all()
+    queryset = Content.objects.order_by('id').reverse()
 
 
 class ContentCreateView(generics.CreateAPIView):
     ermission_classes = (AllowAny,)
     serializer_class = ContentSerializer
-    queryset = Content.objects.all()
+    queryset = Content.objects.all().reverse()
