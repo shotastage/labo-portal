@@ -38,7 +38,6 @@
   </v-layout>
 
 
-  <PostField/>
 
   <v-container fluid grid-list-md>
 
@@ -75,9 +74,6 @@ import axios from 'axios'
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    PostField,
-    AppMenu,
     TimeLine
   },
   data () {
@@ -86,15 +82,15 @@ export default {
     }
   },
   mounted: function () {
-    console.log('mounted')
     axios.get('/api/fields/')
     .then((response) => {
         this.fieldList = response.data
     })
     .catch((error) => {
-        console.log(error)
+        window.console.log(error)
     })
-  }, methods: {
+  },
+  methods: {
       postArticle: function(article_text) {
         axios.defaults.xsrfCookieName = 'csrftoken';
         axios.defaults.xsrfHeaderName = 'X-CSRFToken';
