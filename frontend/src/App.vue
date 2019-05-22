@@ -11,10 +11,31 @@
     </v-toolbar-items>
   </v-toolbar>
 
-  <div style="height:80px;"></div>
-  <div>
-    <v-btn href="/recent_home/" color="error">以前のバージョンに戻す</v-btn>
-  </div>
+  <div style="height:180px;"></div>
+
+
+   <v-layout>
+    <v-flex xs12 sm6 offset-sm3>
+        
+        
+        
+        <div>
+              
+                <v-textarea
+                  outline
+                  v-model="post_text"
+                  label="Type your question"
+                  value=""
+                  lazy
+                ></v-textarea>
+                <v-btn color="info" @click="postArticle(post_text)">投稿</v-btn>
+        </div>
+            
+        
+
+        
+    </v-flex>
+  </v-layout>
 
 
   <PostField/>
@@ -73,6 +94,19 @@ export default {
     .catch((error) => {
         console.log(error)
     })
-  }
+  }, methods: {
+      postArticle: function(article_text) {
+        axios.defaults.xsrfCookieName = 'csrftoken';
+        axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+        axios.post('/api/fields/create/', {
+          title: "NONE TATILE",
+          text: article_text,
+          content_type: "html",
+          created_by: "匿名"
+        }, {
+          headers: {'Content-Type': 'application/json'}
+        }) 
+      }
+    }
 }
 </script>
