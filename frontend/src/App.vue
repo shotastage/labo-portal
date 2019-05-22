@@ -11,7 +11,7 @@
     </v-toolbar-items>
   </v-toolbar>
 
-  <div style="height:100px;"></div>
+  <div style="height:150px;"></div>
 
 
    <v-layout>
