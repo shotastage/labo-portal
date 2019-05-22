@@ -14,7 +14,6 @@
                 >
                     mdi-twitter
                 </v-icon>
-                <span class="title font-weight-light">{{ content.title }}</span>
             </v-card-title>
 
             <v-card-text class="headline font-weight-bold">

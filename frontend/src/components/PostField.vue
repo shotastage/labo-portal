@@ -17,16 +17,6 @@
         <v-card-text>
           <v-container grid-list-md>
             <v-layout column>
-                <v-flex>
-                  <v-text-field
-                    v-model="post_title"
-                    placeholder=""
-                    label="タイトル"
-                    solo
-                    lazy
-                  ></v-text-field>
-                </v-flex>
-
                 <v-textarea
                   v-model="post_text"
                   outline
@@ -42,7 +32,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" flat @click="dialog = false">キャンセル</v-btn>
-          <v-btn color="blue darken-1 warning" @click="postArticle(post_title, post_text); dialog = false">投稿</v-btn>
+          <v-btn color="blue darken-1 warning" @click="postArticle(post_text); dialog = false">投稿</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -72,11 +62,11 @@ export default {
       dialog: false
     }),
     methods: {
-      postArticle: function(article_title, article_text) {
+      postArticle: function(article_text) {
         axios.defaults.xsrfCookieName = 'csrftoken';
         axios.defaults.xsrfHeaderName = 'X-CSRFToken';
         axios.post('/api/fields/create/', {
-          title: article_title,
+          title: "NONE TATILE",
           text: article_text,
           content_type: "html",
           created_by: "匿名"
