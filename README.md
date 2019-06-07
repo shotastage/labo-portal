@@ -1,4 +1,4 @@
-# Teachbox
+# Attendance Management for NECO
 
 Teacher web system for efficient wonderful lesson
 
