@@ -66,6 +66,7 @@ if RUNNING_MODE == "devel":
 # Application definition
 
 INSTALLED_APPS = [
+    'myportal.apps.MyportalConfig',
     'app.apps.AppConfig',
     'field.apps.FieldConfig',
     'enrollment.apps.EnrollmentConfig',
