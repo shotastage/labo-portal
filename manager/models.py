@@ -13,6 +13,8 @@ class Meetings(models.Model):
   mtg_id = models.CharField(max_length = 255)
   time = models.IntegerField(default=get_next)
   active = models.BooleanField(default=True)
+  gas_url = models.CharField(max_length = 255, default="")
+
   #attended_student = {}
 
 
