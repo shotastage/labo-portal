@@ -26,7 +26,10 @@ except:
 
 
 
-APPLICATION_NAME = "NECO"
+# NECO Portal Configurations
+APPLICATION_NAME = "NECO Portal"
+
+SLACK_INCOMING_TOKEN = os.environ["SLACK_INCOMING_TOKEN"]
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -109,8 +112,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.static', #ここ追加
-
+                'django.template.context_processors.static',
+                'necoattend.context_processors.site_common_text'
             ],
         },
     },
