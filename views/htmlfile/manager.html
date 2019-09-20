@@ -6,41 +6,51 @@
 
         <div class="container">
             <h1 style="margin-top: 20px; margin-botom: 20px;">KGL Admin</h1>
-            <div class="form-group">
-                <a href="create/" class="btn btn-warning btn-lg btn-block">新規ミーティング作成</a>
-            </div>
 
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">回数</th>
-                  <th scope="col">Meeting ID</th>
-                  <th scope="col">操作メニュー</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for data in table_data %}
 
-                {% if data.active %}
-                <tr class="table-primary">
-                {% else %}
-                <tr class="table-light">
-                {% endif %}
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="pills-mtg-tab" data-toggle="pill" href="#pills-mtg" role="tab" aria-controls="pills-mtg" aria-selected="true">ミーティング</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="pills-lt-tab" data-toggle="pill" href="#pills-lt" role="tab" aria-controls="pills-lt" aria-selected="false">輪読・LT</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="pills-event-tab" data-toggle="pill" href="#pills-event" role="tab" aria-controls="pills-event" aria-selected="false">イベント</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="pills-achievement-tab" data-toggle="pill" href="#pills-achievement" role="tab" aria-controls="pills-achievement" aria-selected="false">成績処理</a>
+                </li>
+              </ul>
 
-                  <th scope="row">{{ data.time }}</th>
-                  <td>{{ data.mtg_id }}</td>
-                  <td>
-                    <a href="show_qr/?mtg_id={{ data.mtg_id }}" class="btn btn-success">QR 表示</a>
-                    <a href="attendances/?mtg_id={{ data.mtg_id }}" class="btn btn-warning">出席者一覧</a>
-                    <a href="disable/?time={{ data.time }}" class="btn btn-info">GAS登録</a>
-                    <a href="disable/?time={{ data.time }}" class="btn btn-danger">〆切</a>
-                  </td>
-                </tr>
-                {% empty %}
-                  <p>No meeting</p>
-                {% endfor %}
-              </tbody>
-            </table> 
+
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-mtg" role="tabpanel" aria-labelledby="pills-mtg-tab">
+                  {% include "./kgladmin/meeting.html" %}
+                </div>
+                <div class="tab-pane fade" id="pills-lt" role="tabpanel" aria-labelledby="pills-lt-tab">
+                  {% include "./kgladmin/LT.html" %}
+                </div>
+                <div class="tab-pane fade" id="pills-event" role="tabpanel" aria-labelledby="pills-event-tab">
+                  {% include "./kgladmin/LT.html" %}
+                </div>
+                <div class="tab-pane fade" id="pills-achievement" role="tabpanel" aria-labelledby="pills-achievement-tab">
+                    {% include "./kgladmin/LT.html" %}
+                  </div>
+              </div>
+  
+      
+
+
+
+            
+           
+
+
+
+
+
+            
         </div>
             {% include "./script.html" %}
 
