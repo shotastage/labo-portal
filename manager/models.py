@@ -14,8 +14,12 @@ class Meetings(models.Model):
   time = models.IntegerField(default=get_next)
   active = models.BooleanField(default=True)
   gas_url = models.CharField(max_length = 255, default="")
+  room = models.CharField(max_length = 255, default="")
+  datetime = 
+  description = models.CharField(max_length = 1000)
 
-  #attended_student = {}
+  # elementaly_presenters = 
+  # secondary_presenters = 
 
 
 class Attendances(models.Model):

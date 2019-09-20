@@ -27,7 +27,16 @@ except:
 
 
 # NECO Portal Configurations
-APPLICATION_NAME = "🎃  NECO Portal"
+try:
+    SEASONABLE_EMOJI = os.environ["SEASONABLE_EMOJI"] + "  "
+except:
+    SEASONABLE_EMOJI = ""
+
+try:
+    APPLICATION_NAME = SEASONABLE_EMOJI + os.environ["APP_NAME"]
+except:
+    APPLICATION_NAME = SEASONABLE_EMOJI + "NECO Portal"
+
 
 try:
     SLACK_INCOMING_TOKEN = os.environ["SLACK_INCOMING_TOKEN"]
