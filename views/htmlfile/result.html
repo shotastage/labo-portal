@@ -6,13 +6,31 @@
         <br><br>
 
         {% if is_error %}
+
+        <h2>エラーを解決してください.</h2>
+
+
         <div class="alert alert-dismissible alert-danger">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <h4 class="alert-heading">{{ error_title }}</h4>
             <p class="mb-0">{{ error_desc }}</p>
         </div>
+
+        {% if error_title == "多重送信エラー" %}
+            <div class="alert alert-dismissible alert-light">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>ヒント</strong> フォームの再送信の警告メッセージが表示されませんでしたか？ その場合はすでに出欠は登録されています.
+            </div>
+
+            <div class="alert alert-dismissible alert-light">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>ヒント</strong> ログイン名を間違えて送信しましたか？ KGLにミスした出席を削除してもらってください.
+            </div>
+
+        {% endif %}
+        
+            
         <div class="form-group">
-            <h2>エラーを解決してください.</h2>
         </div>
         {% else %}
 
