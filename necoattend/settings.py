@@ -27,9 +27,17 @@ except:
 
 
 # NECO Portal Configurations
-APPLICATION_NAME = "NECO Portal"
+APPLICATION_NAME = "🎃  NECO Portal"
 
-SLACK_INCOMING_TOKEN = os.environ["SLACK_INCOMING_TOKEN"]
+try:
+    SLACK_INCOMING_TOKEN = os.environ["SLACK_INCOMING_TOKEN"]
+
+except:
+    SLACK_INCOMING_TOKEN = ""
+
+
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,7 +48,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '8m(#wph6wde_6io&ox!2tmf)b*7@0!^7fqg9q&l^^mktg^@q6p'
+try:
+    SECRET_KEY = os.environ["SECRET_KEY"]
+except:
+    SECRET_KEY = '8m(#wph6wde_6io&ox!2tmf)b*7@0!^7fqg9q&l^^mktg^@q6p'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if RUNNING_MODE == "production":
