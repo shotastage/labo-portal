@@ -19,6 +19,11 @@
           "description": "A secret key for verifying the integrity of signed cookies.",
           "generator": "secret"
         },
+        "APP_NAME": {
+            "description": "Application name that will be displayed on navigation bar.",
+            "value": "Labo Portal",
+            "required": true
+        },
         "NSYS_RUNNING_MODE": {
             "description": "Settings for defining a running mode.",
             "value": "production",
@@ -34,6 +39,10 @@
             "description": "Enabling slack notification.",
             "value": "",
             "required": false
+        },
+        "DISABLE_COLLECTSTATIC": {
+            "description": "Disables running ``collectstatic`` during the build.",
+            "value": "1"
         }
     }
 
