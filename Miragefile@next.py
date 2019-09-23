@@ -18,7 +18,7 @@ MIRAGE_CONFIG_DEFAULT_CLASS = "MirageConfig"
 class MirageConfig(ConfigScript):
 
     BASIC_PROJECT = {
-        "NAME": "necoattend",
+        "NAME": "labo",
         "VERSION": "0.0.1",
         "AUTHOR": "Shota Shimazu <hornet.live.mf@gmail.com>",
         "GIT_URL": "",
@@ -28,7 +28,7 @@ class MirageConfig(ConfigScript):
 
     DJANGO_PROJECT = {
         "path": ".",
-        "module": "necoattend",
+        "module": "labo",
         "package": "pipenv",
         "database": "PostgreSQL",
     }

@@ -1,1 +1,1 @@
-web: gunicorn necoattend.wsgi
+web: gunicorn labo.wsgi

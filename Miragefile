@@ -2,7 +2,7 @@
     "miragefile": "v0.0.4",
 
     "project": {
-        "name": "necoattend",
+        "name": "labo",
         "version": "0.0.1",
         "author": "Shota Shimazu <hornet.live.mf@gmail.com>",
         "git": "",
@@ -11,7 +11,7 @@
 
         "django": {
             "path": ".",
-            "module": "necoattend",
+            "module": "labo",
             "package": "pipenv",
             "database": "PostgreSQL"
         },
