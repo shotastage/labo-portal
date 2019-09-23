@@ -32,7 +32,9 @@
 
                 {% if user.is_authenticated %}
                 <li>
-                  <a class="nav-item nav-link" href="{% url 'register:logout' %}">ログアウト</a>
+                  <a class="nav-item nav-link" href="{% url 'register:logout' %}">
+                      <button type="button" class="btn btn-outline-primary">ログアウト</button>
+                  </a>
                 </li>
                 {% else %}
                 <li class="nav-item">
