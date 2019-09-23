@@ -1,21 +1,22 @@
-# Attendance Management for NECO
+# Laboratory Portal Web
 
-Teacher web system for efficient wonderful lesson
+Portal web system for laboratory.
 
-# Info
-Information of development environment.
+# Features
 
-## Environment
-OS: macOS
+- Attendance management
 
-## Versions
-Django Version: `2.2.0`
+- Meetings and lecture or experiments notification via Slack.
 
-Python Version: `3.7.3`
 
-## Installed pip packages
-+ wheel 0.33.1  
-+ sqlparse 0.3.0  
-+ pytz 2019.1  
-+ Django 2.2  
-+ django-mirage 0.1.7
+
+# Requirements
+
+| | |
+|:------------:|:-------------|
+| Runtime | Python 3.7.4 |
+| Database | PostgreSQL 11 |
+
+# Copyrights
+
+This software is licensed under the MIT, see LICENSE for detail.

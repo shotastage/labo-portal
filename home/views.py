@@ -45,11 +45,10 @@ class AttendanceView(View):
         return render(request, "htmlfile/attend.html", context)
 
 
+
     def post(self, request):
 
         # Get params
-
-        
         login_name = request.POST["dwqd2nj2"]
         bw_id = request.POST["bw_id"]
         mtg_id = request.POST["mtg_id"]
@@ -70,7 +69,7 @@ class AttendanceView(View):
             ip = x_forwarded_for.split(',')[0]
         else:
             ip = request.META.get('REMOTE_ADDR')
-    
+
 
         recent_atd = Attendances.objects.filter(mtg_id=mtg_id)
 
