@@ -1,0 +1,83 @@
+<form method="post" action="/kgl/create/">{% csrf_token %}
+    <div class="form-group">
+        <label>時限</label>
+        <select class="form-control" name="period">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+        </select>
+    </div>
+            
+    
+    
+    <div class="form-group">
+        <label for="exampleInputEmail1">時間</label>
+
+        <div class="form-inline">
+            <input type="number" name="month" class="form-control" style="width:70px;" placeholder="8">
+            <label>月</label>
+
+            <input type="number" name="day" class="form-control" style="width:70px;" placeholder="5">
+            <label>日</label>
+            
+            <input type="number" name="hour" class="form-control" style="width:70px;" placeholder="10">
+            <label>時</label>
+
+            <input type="number" name="minu" class="form-control" style="width:70px;" placeholder="25">
+            <label>分</label>
+
+        </div>
+    </div>
+        
+
+    <div class="form-group">
+        <label>場所</label>
+
+        <div class="form-inline">
+
+        <input type="text" class="form-control" name="campus" placeholder="キャンパス">
+        <input type="text" class="form-control" name="room" placeholder="教室">
+        </div>
+    </div>
+        
+
+
+    <div class="form-group">
+        <label>スライドアップロードURL</label>
+        <input type="url" class="form-control" name="gas_url" placeholder="URLを入力">
+        <small class="form-text text-muted">CloudのURLもしくはGASのAppを指定できます.</small>
+    </div>
+        
+
+    <div class="form-group">
+        <label>進捗発表者</label>
+        <textarea class="form-control" name="elem_presenters" rows="3"></textarea>
+    </div>
+
+
+    <div class="form-group">
+        <label>輪読/LT発表者</label>
+        <textarea class="form-control" name="second_presenters" rows="3"></textarea>
+    </div>
+
+
+    <div class="form-group">
+        <label>その他/連絡</label>
+        <textarea class="form-control" name="desc" rows="3"></textarea>
+    </div>
+
+    <div class="form-check">
+        <label class="form-check-label">
+        <input class="form-check-input" name="is_slack" type="checkbox" value="1" checked="">
+        メーティング内容をSlackに通知する
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-success btn-lg btn-block">作成</button>
+</form>

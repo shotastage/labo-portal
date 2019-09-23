@@ -8,7 +8,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from uuid import uuid4
-from .models import Meetings
+from manager.models import Meetings
 from home.models import Attendances
 import qrcode
 from django.conf import settings
@@ -32,23 +32,6 @@ class ManageView(View):
     def post(self, request):
 
         return render(request,'htmlfile/manager.html')
-
-
-class MeetingCreateView(View):
-    @method_decorator(login_required)
-    def get(self, request):
-        
-        generated_id = uuid4()
-
-        mtg = Meetings(
-            mtg_id=generated_id,
-            active=True
-        )
-
-        mtg.save()
-
-        return redirect('/kgl/')
-
 
 
 class MeetingDisableView(View):

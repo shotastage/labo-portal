@@ -92,7 +92,6 @@ if RUNNING_MODE == "devel":
 INSTALLED_APPS = [
     'register.apps.RegisterConfig',
     'setup.apps.SetupConfig',
-    'myportal.apps.MyportalConfig',
     'app.apps.AppConfig',
     'enrollment.apps.EnrollmentConfig',
     'bgport.apps.BgportConfig',

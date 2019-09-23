@@ -5,11 +5,11 @@
         {% include "../htmlfile/navbar.html" %}
 
         <div class="container">
-          <h1 style="margin-top: 20px; margin-botom: 20px;">{{ app_name }} Enrollment</h1>
-            <div class="card border-primary">
-              <div class="card-header"></div>
+            <div class="container mt-3">
+
+            <div class="card border-primary col-md-6 offset-md-3">
               <div class="card-body">
-                <h4 class="card-title">{{app_name}} Student 登録フォーム</h4>
+                <h4 class="card-title"> Student 登録フォーム</h4>
                 <form method="post" action="/kg/enrollment/">{% csrf_token %}
                   <fieldset>
                     <div class="form-group">
@@ -23,7 +23,7 @@
     
                     <div class="form-group">
                       <label for="grade_input">学年 / Grade</label>
-                      <select multiple="" class="form-control" id="grade_input" name="grade">
+                      <select class="form-control" id="grade_input" name="grade">
                           <option>B1</option>
                           <option>B2</option>
                           <option>B3</option>
@@ -38,10 +38,11 @@
                       </select>
                     </div>    
               
-                    <button type="submit" class="btn btn-primary">登録</button>
+                    <button type="submit" class="btn btn-success btn-lg btn-block">登録</button>
                   </fieldset>
                 </form>
               </div>
+            </div>
             </div>
           </div>
 
