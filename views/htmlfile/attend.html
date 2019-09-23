@@ -3,13 +3,19 @@
     {% include "./head.html" %}
     <body>
         <div class="container">
-            <h1>出欠</h1>
+
+               
+                    
+            <h1>出席登録</h1>
 
             <div class="alert alert-dismissible alert-primary">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong>注意</strong>  CNS Wi-FiもしくはLTE回線で接続してください. エラーになる場合があります.
             </div>
 
+            <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-body">
             <form method="post" action="/atd/" name="send_attend">{% csrf_token %}
             <div class="form-group">
                 <label class="col-form-label col-form-label-lg" for="inputLarge">ログイン名</label>
@@ -22,7 +28,11 @@
                 <p></p>
                 <button type="submit" id="submit" class="btn btn-warning btn-lg btn-block">送信</button>
             </div>
-            <form>
+            </form>
+            </div>
+            </div>
+            </div>
+
         </div>
 
 
