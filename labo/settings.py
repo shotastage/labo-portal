@@ -90,6 +90,7 @@ if RUNNING_MODE == "devel":
 # Application definition
 
 INSTALLED_APPS = [
+    'register.apps.RegisterConfig',
     'setup.apps.SetupConfig',
     'myportal.apps.MyportalConfig',
     'app.apps.AppConfig',
@@ -174,6 +175,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+LOGIN_URL = 'register:login'
+LOGIN_REDIRECT_URL = 'register:top'
 
 
 # Internationalization
