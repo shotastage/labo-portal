@@ -93,7 +93,6 @@ INSTALLED_APPS = [
     'setup.apps.SetupConfig',
     'myportal.apps.MyportalConfig',
     'app.apps.AppConfig',
-    'field.apps.FieldConfig',
     'enrollment.apps.EnrollmentConfig',
     'bgport.apps.BgportConfig',
     'news.apps.NewsConfig',
