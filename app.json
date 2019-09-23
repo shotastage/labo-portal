@@ -26,11 +26,14 @@
         },
         "SEASONABLE_EMOJI": {
             "description": "Add emoji on navigation bar.",
-            "value": "🧪"
+            "value": "🧪",
+            "required": false
+
         },
         "SLACK_INCOMING_TOKEN": {
             "description": "Enabling slack notification.",
-            "value": "🧪"
+            "value": "",
+            "required": false
         }
     }
 
