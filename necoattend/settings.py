@@ -90,6 +90,7 @@ if RUNNING_MODE == "devel":
 # Application definition
 
 INSTALLED_APPS = [
+    'setup.apps.SetupConfig',
     'myportal.apps.MyportalConfig',
     'app.apps.AppConfig',
     'field.apps.FieldConfig',
