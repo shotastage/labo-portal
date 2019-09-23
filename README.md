@@ -2,6 +2,9 @@
 
 Portal web system for laboratory.
 
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 # Features
 
 - Attendance management

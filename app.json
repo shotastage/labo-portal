@@ -1,0 +1,37 @@
+{
+    "name": "Labo Portal",
+    "description": "Portal web system for University Labo.",
+    "repository": "https://github.com/shotastage/labo-portal",
+    "keywords": ["python", "django", "static"],
+    "success_url": "/",
+    "image": "heroku/python",
+    "buildpacks": [
+        {
+          "url": "heroku/python"
+        }
+    ],
+    "addons": ["heroku-postgresql:hobby-dev"],
+    "scripts": {
+        "postdeploy": "python manage.py migrate"
+    },
+    "env": {
+        "SECRET_KEY": {
+          "description": "A secret key for verifying the integrity of signed cookies.",
+          "generator": "secret"
+        },
+        "NSYS_RUNNING_MODE": {
+            "description": "Settings for defining a running mode.",
+            "value": "production",
+            "required": true
+        },
+        "SEASONABLE_EMOJI": {
+            "description": "Add emoji on navigation bar.",
+            "value": "🧪"
+        },
+        "SLACK_INCOMING_TOKEN": {
+            "description": "Enabling slack notification.",
+            "value": "🧪"
+        }
+    }
+
+}
