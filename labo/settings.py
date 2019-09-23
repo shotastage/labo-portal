@@ -33,9 +33,9 @@ except:
     SEASONABLE_EMOJI = ""
 
 try:
-    APPLICATION_NAME = SEASONABLE_EMOJI + os.environ["APP_NAME"]
+    APPLICATION_NAME = os.environ["APP_NAME"]
 except:
-    APPLICATION_NAME = SEASONABLE_EMOJI + "NECO Portal"
+    APPLICATION_NAME = "NECO Portal"
 
 
 try:

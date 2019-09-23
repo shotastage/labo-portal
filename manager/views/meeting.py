@@ -61,16 +61,24 @@ class MeetingCreateView(View):
         mtg.save()
 
 
-        text = u'*🔴  次回MTG連絡*\n>*日時:* {0}時限目 2019/{1}/{2} {3}:{4}~\n>*キャンパス:* {5}  *教室:* {6}\n>*進捗発表:* {7}\n>*LT発表:* {8}\n>*メッセージ:* {9}'.format(period, month, day, hour, minu, campus, room, elem_presenters, second_presenters, desc)
+        try:
+            is_notify = request.POST['is_notify']
+            is_notify = "@channel"
+        except:
+            is_notify = ""
+        
+        text = u'{0}\n*🔴  次回MTG連絡*\n>*日時:* {1}時限目 2019/{2}/{3} {4}:{5}~\n>*キャンパス:* {6}  *教室:* {7}\n>*進捗発表:* {8}\n>*LT発表:* {9}\n>*メッセージ:* {10}'.format(
+            is_notify, period, month, day, hour, minu, campus, room, elem_presenters, second_presenters, desc)
 
         try:
             is_slack = request.POST['is_slack']
-        
+
+
             WEB_HOOK_URL = settings.SLACK_INCOMING_TOKEN
-    
+
             requests.post(WEB_HOOK_URL, data = json.dumps({
                 'text': text,
-                'username': u'NECO Portal System',
+                'username': u'{0} Portal System'.format(settings.APPLICATION_NAME),
                 'icon_emoji': u':smile_cat:',
                 'link_names': 1,
             }))
