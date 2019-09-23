@@ -1,13 +1,13 @@
 import os, sys
-import dj_database_url
 
 try:
 
     if "postgres://" in os.environ["DATABASE_URL"]:
+
+        import dj_database_url
+
         database_setting = {
-            'default': {
-                dj_database_url.config(default=os.environ["DATABASE_URL"])
-            }
+            'default': dj_database_url.config(default=os.environ["DATABASE_URL"])
         }
     else:
         database_setting = {
