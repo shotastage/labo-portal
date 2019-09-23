@@ -19,6 +19,7 @@ djangorestframework = "*"
 django-webpack-loader = "*"
 django-filter = "*"
 channels = "*"
+dj-database-url = "*"
 
 [requires]
 python_version = "3.7.4"
