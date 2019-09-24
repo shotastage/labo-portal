@@ -11,6 +11,8 @@ from django.contrib.auth.decorators import login_required
 from manager.models import Meetings
 from home.models import Attendances
 
+import math
+
 class MyPageView(View):
 
     @method_decorator(login_required)
@@ -36,7 +38,7 @@ class MyPageView(View):
 
         context = {
             'app_name': settings.APPLICATION_NAME,
-            'attend_ratio': ratio,
+            'attend_ratio': math.floor(ratio),
             'user_attend_count': user_attend,
             'mtg_count': mtg_count,
         }
