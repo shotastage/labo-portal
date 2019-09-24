@@ -17,11 +17,22 @@ class MyPageView(View):
     def get(self, request):
 
 
-        mtg_count = len(Meetings.objects.all())
+        mtg_count = len(Meetings.objects.filter(active=False))
 
         user_attend = len(Attendances.objects.filter(login=request.user))
 
-        ratio = user_attend / mtg_count * 100
+
+        try:
+            ratio = user_attend / mtg_count * 100
+
+            if mtg_count < user_attend:
+                ratio = 100
+        except ZeroDivisionError:
+            ratio = 0
+
+            if mtg_count < user_attend:
+                ratio = 100
+
 
         context = {
             'app_name': settings.APPLICATION_NAME,
