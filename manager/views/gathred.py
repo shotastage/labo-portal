@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic import View
 from django.contrib.auth.decorators import login_required
-
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
@@ -17,7 +16,7 @@ from django.conf import settings
 
 class ManageView(View):
 
-    @method_decorator(login_required)
+    @method_decorator(staff_member_required(login_url='/login'))
     def get(self, request):
 
         data = Meetings.objects.all()
@@ -28,14 +27,14 @@ class ManageView(View):
 
         return render(request, "htmlfile/manager.html", context)
 
-    @method_decorator(login_required)
+    @method_decorator(staff_member_required(login_url='/login'))
     def post(self, request):
 
         return render(request,'htmlfile/manager.html')
 
 
 class MeetingDisableView(View):
-    @method_decorator(login_required)
+    @method_decorator(staff_member_required)
     def get(self, request):
         
         time = request.GET.get("time")
