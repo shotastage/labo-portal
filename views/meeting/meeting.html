@@ -9,58 +9,33 @@
             
 
 
-            <!--
-            <div class="card text-center">
-              <div class="card-header">
-                <ul class="nav nav-tabs card-header-tabs">
-                  <li class="nav-item">
-                    <a class="nav-link active" href="#">Active</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                  </li>
-                </ul>
-              </div>
+        
+
+          {% for data in table_data %}
+          <div style="margin-bottom: 20px;">
+            <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h4 class="card-title">{{ data.time }}回MTG</h4>
+                <h6 class="card-subtitle mb-2 text-muted">{{ data.due_date }}~</h6>
+                <p class="card-text">{{ data.description }}</p>
+
+                {% if data.active %}
+                  <span class="badge badge-primary">出席を受け付けています</span>
+                {% endif %}
+
+                <!--
+                <span class="badge badge-success">あなたが発表しています</span>
+                <span class="badge badge-danger">無断欠席</span>
+                <span class="badge badge-warning">欠席しています</span>
+                -->
+
+
+                <!--
+                <a href="{{ data.gas_url}}" target="_blank" class="card-link">スライド登録</a>  -->
               </div>
             </div>
-          -->
-
-
-
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">回数</th>
-                  <th scope="col">概要</th>
-                  <th scope="col">操作メニュー</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for data in table_data %}
-        
-                
-                <tr class="table-light">
-                <th scope="row">{{ data.time }}</th>
-
-                  <th scope="row">{{ data.description }}</th>
-                  <td>
-                    <a href="{{ data.gas_url}}" target="_blank" class="btn btn-warning">スライド登録</a>
-                  
-                  </td>
-                </tr>
-                {% empty %}
-                  <p>No meeting</p>
-                {% endfor %}
-              </tbody>
-            </table> 
-        
+          </div>
+          {% endfor %}
 
 
         </div>
