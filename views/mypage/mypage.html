@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "../htmlfile/head.html" %}
+    <body>
+        {% include "../htmlfile/navbar.html" %}
+    
+
+        <div class="container mt-3">
+            <h1 class="display-3">My Page</h1>
+            
+            {% if attend_ratio < 70 %}
+                <div class="alert alert-dismissible alert-info">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <h4 class="alert-heading">警告!</h4>
+                    <p class="mb-0">出席率が60%を低下すると成績評定に影響を及ぼす可能性があります. ミーティングに出席するようにしましょう</a>.</p>
+                </div>
+            {% endif %}
+    
+            {% if attend_ratio < 60 %}
+                <div class="alert alert-dismissible alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <h4 class="alert-heading">警告!</h4>
+                    <p class="mb-0">出席率が50%を低下すると成績評定に深刻な影響を及ぼす可能性があります. ミーティングに出席するようにしましょう</a>.</p>
+                </div>
+            {% endif%}
+    
+            {% if attend_ratio < 50 %}
+                <div class="alert alert-dismissible alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <h4 class="alert-heading">警告!</h4>
+                    <p class="mb-0">出席率が50%を低下しました.成績評定への深刻な影響が避けされない状況です. ミーティングに参加しこれ以上欠席しないようにしましょう.</a>.</p>
+                </div>
+            {% endif %}
+
+            {% if attend_ratio < 5 %}
+                <div class="alert alert-dismissible alert-light">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>お知らせ</strong> あなたの出席率は5%以下です.
+                </div>
+            {% endif %}
+
+
+            <div class="card border-primary mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">あなたの出席率は</h4>
+                    <h1>{{ attend_ratio }}%</h1>
+                    <div class="progress">
+
+                    {% if attend_ratio < 70 %}
+                        {% if attend_ratio < 60 %}
+                            <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: {{ attend_ratio }}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                        {% else %}
+                            <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: {{ attend_ratio }}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                        {% endif%}
+                    {% else %}
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{ attend_ratio }}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    {{ mtg_count }}回中/{{ user_attend_count }}回出席
+                </div>
+            </div>
+
+            
+        </div>
+            {% include "../htmlfile/script.html" %}
+
+    </body>
+</html>

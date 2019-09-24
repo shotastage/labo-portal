@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('', include('register.urls')),
     path('', include('meeting.urls')),
+    path('', include('mypage.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('kgl/', include('manager.urls')),
     path('kg/', include('enrollment.urls')),
