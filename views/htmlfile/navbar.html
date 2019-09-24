@@ -32,9 +32,21 @@
 
                 {% if user.is_authenticated %}
                 <li>
-                  <a class="nav-item nav-link" href="{% url 'register:logout' %}">
-                      <button type="button" class="btn btn-outline-primary">ログアウト</button>
-                  </a>
+            
+
+                  
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      {% if user.is_authenticated %}
+                      {{ user.get_username }}さん
+                    {% endif %}
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <a class="dropdown-item" href="{% url 'register:logout' %}">ログアウト</a>
+                    </div>
+                  </div>
+
+
                 </li>
                 {% else %}
                 <li class="nav-item">

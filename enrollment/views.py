@@ -25,4 +25,4 @@ class Enrollment(View):
         user.member.grade = grade
         user.save()        
 
-        return redirect('/')
+        return redirect('/login/')
