@@ -19,7 +19,7 @@ class MyPageView(View):
 
         mtg_count = len(Meetings.objects.filter(active=False))
 
-        user_attend = len(Attendances.objects.filter(login=request.user))
+        user_attend = len(Attendances.objects.filter(login=request.user, attend=True))
 
 
         try:

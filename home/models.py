@@ -6,6 +6,6 @@ class Attendances(models.Model):
   mtg_id = models.CharField(max_length = 255)
   bw_id = models.CharField(max_length = 255, default="NONE")
   ip_address = models.CharField(max_length = 255)
-  attend = models.BooleanField()
+  attend = models.BooleanField(default=True)
   description = models.TextField(max_length = 500, default="No Description")
   is_presentationed = models.BooleanField(default=False)
