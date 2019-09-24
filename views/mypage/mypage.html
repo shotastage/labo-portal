@@ -57,9 +57,18 @@
                     {% endif %}
                     </div>
                 </div>
+
+               
+
                 <div class="card-footer text-muted">
-                    {{ mtg_count }}回中/{{ user_attend_count }}回出席  <small>* 出席が締め切られたMTGが反映されます</small>
+                    <h5>{{ user_attend_count }}回出席/{{ mtg_count }}回中  </h5>   
+                    
+                    <small>
+                        MTG回数は既に登録されたMTGを含み割合は出席したMTGが締め切られてから反映されます.従って, 一時的に回数比と割合が一致しない場合があります.
+                    </small>
                 </div>
+
+                
             </div>
 
             
