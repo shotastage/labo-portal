@@ -90,6 +90,7 @@ if RUNNING_MODE == "devel":
 # Application definition
 
 INSTALLED_APPS = [
+    'meeting.apps.MeetingConfig',
     'register.apps.RegisterConfig',
     'setup.apps.SetupConfig',
     'app.apps.AppConfig',

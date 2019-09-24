@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "../htmlfile/head.html" %}
+    <body>
+        {% include "../htmlfile/navbar.html" %}
+
+        <div class="container">
+            <h1 style="margin-top: 20px; margin-bottom: 30px;">ミーティング</h1>
+            
+
+
+            <!--
+            <div class="card text-center">
+              <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Active</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          -->
+
+
+
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">回数</th>
+                  <th scope="col">概要</th>
+                  <th scope="col">操作メニュー</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for data in table_data %}
+        
+                
+                <tr class="table-light">
+                <th scope="row">{{ data.time }}</th>
+
+                  <th scope="row">{{ data.description }}</th>
+                  <td>
+                    <a href="{{ data.gas_url}}" target="_blank" class="btn btn-warning">スライド登録</a>
+                  
+                  </td>
+                </tr>
+                {% empty %}
+                  <p>No meeting</p>
+                {% endfor %}
+              </tbody>
+            </table> 
+        
+
+
+        </div>
+            {% include "../htmlfile/script.html" %}
+
+    </body>
+</html>
