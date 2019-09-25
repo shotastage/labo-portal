@@ -79,6 +79,19 @@ class AttendanceView(View):
 
         mtgs = Meetings.objects.filter(mtg_id=mtg_id)
 
+
+        try:
+            mtgs[0]
+        except:
+            context = {
+                'is_error': True,
+                'error_title': "エラー",
+                'error_desc': "存在しないミーティングです. (Meeting IDが一致ません)"
+            }
+
+            return render(request, "htmlfile/result.html", context)
+    
+
         if not mtgs[0].active:
             context = {
                 'is_error': True,

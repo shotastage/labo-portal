@@ -127,7 +127,7 @@ class QRShowView(View):
 
         mtg_id = request.GET.get("mtg_id")
 
-        url =  "https://neco-sys.herokuapp.com/atd/?mtg_id=" + mtg_id
+        url = "https://" + settings.APPLICATION_URL + "/atd/?mtg_id=" + mtg_id
 
         if settings.RUNNING_MODE == "devel":
             url = "http://localhost:8000/atd/?mtg_id=" + mtg_id

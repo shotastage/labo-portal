@@ -15,6 +15,11 @@
         "postdeploy": "python manage.py migrate"
     },
     "env": {
+        "APPLICATION_URL": {
+            "description": "Application URL is web system host name.",
+            "value": "{YOUR APP NAME}.herokuapp.com",
+            "required": true
+        },
         "SECRET_KEY": {
           "description": "A secret key for verifying the integrity of signed cookies.",
           "generator": "secret"
