@@ -34,6 +34,7 @@ class MeetingCreateView(View):
         campus = request.POST['campus']
         room = request.POST['room']
         gas_url = request.POST['gas_url']
+        qaurl = request.POST['qaurl']
         elem_presenters = request.POST['elem_presenters']
         second_presenters = request.POST['second_presenters']
         desc = request.POST['desc']
@@ -53,6 +54,7 @@ class MeetingCreateView(View):
             campus = campus,
             room = room,
             gas_url = gas_url,
+            qasys = qaurl,
             elementaly_presenters = elem_presenters,
             secondary_presenters = second_presenters,
             description = desc
