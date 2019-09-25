@@ -29,6 +29,14 @@ class HomeView(View):
 
 
 
+
+class DriveView(View):
+
+    def get(self, request):
+        return render(request, "home/drive.html")
+
+
+
 class AttendanceView(View):
 
     def get(self, request):

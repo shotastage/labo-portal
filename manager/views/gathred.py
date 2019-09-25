@@ -49,6 +49,23 @@ class MeetingDisableView(View):
 
 
 
+
+class MeetingEnableView(View):
+    @method_decorator(staff_member_required)
+    def get(self, request):
+        
+        time = request.GET.get("time")
+
+        mtg = Meetings.objects.get(time=time)
+
+        mtg.active = True
+
+        mtg.save()
+
+        return redirect('/kgl/')
+
+
+
 class AttendacesListView(View):
 
     @method_decorator(login_required)

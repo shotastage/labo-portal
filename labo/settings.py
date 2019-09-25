@@ -52,6 +52,14 @@ except:
 
 
 
+try:
+    DRIVE_ID = os.environ["GOOGLE_DRIVE_ID"]
+
+except:
+    DRIVE_ID = ""
+
+
+
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
