@@ -21,6 +21,7 @@ class Meetings(models.Model):
   campus = models.CharField(max_length = 255, default="")
   room = models.CharField(max_length = 255, default="")
   gas_url = models.CharField(max_length = 255, default="")
+  qasys = models.CharField(max_length = 255, default="")
   elementaly_presenters = models.CharField(max_length = 500, default="")
   secondary_presenters = models.CharField(max_length = 500, default="")
   description = models.CharField(max_length = 1000, default="")

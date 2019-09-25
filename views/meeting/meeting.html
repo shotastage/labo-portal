@@ -22,9 +22,15 @@
                     <li class="list-group-item">キャンパス: {{ data.campus }}　　教室: {{ data.room }}</li>
                     <li class="list-group-item">進捗発表:  {{ data.elementaly_presenters }}</li>
                     <li class="list-group-item">輪読/LT発表:  {{ data.secondary_presenters }}</li>
-                  </ul>
+                </ul>
 
-                <p class="card-text">{{ data.description }}</p>
+
+                
+                <p class="card-text">{{ data.description }}</p><hr>
+
+                {% if data.qasys != "" %}
+                  <a href="{{ data.qasys }}" target="_blank" class="btn btn-primary">Wooclap!</a><hr>
+                {% endif %}
 
                 {% if data.active %}
                   <span class="badge badge-primary">出席を受け付けています</span>
