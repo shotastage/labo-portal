@@ -8,7 +8,8 @@
             <h1>QRコードをスキャンして出席してください</h1>
             
             {% load static %}
-            <img src="{% static qr_image %}" />
+
+            <img src="{% static qr_image %}" class="img-fluid" alt="Responsive image">
 
                 <button data-toggle="modal" data-target="#dialog" class="btn btn-warning">出席URLの表示</button>
 
