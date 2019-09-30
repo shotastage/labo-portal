@@ -60,6 +60,14 @@ except:
 
 
 
+try:
+    CALENDAR_LINK = os.environ["CALENDAR_LINK"]
+
+except:
+    CALENDAR_LINK = ""
+
+
+
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)

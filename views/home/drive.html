@@ -3,8 +3,34 @@
     {% include "../htmlfile/head.html" %}
     <body>
         {% include "../htmlfile/navbar.html" %}
-    
-        <iframe src="https://drive.google.com/embeddedfolderview?id={{ DRIVE_ID }}#grid" name="sample" width="100%" height="800px" style="border: none;">
+        
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-md-4 offset-md-2">
+                    <div class="card">
+                        <a href="https://drive.google.com/drive/u/1/folders/{{DRIVE_ID}}">
+                            <div class="card-body">
+                                <img class="card-img-top" src="https://cdn.svgporn.com/logos/google-drive.svg" alt="Card image cap">  
+                                <h3 class="card-title text-center">NECO Google Drive</h3>              
+                            </div>
+                        </a> 
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                        <div class="card">
+                            <a href="{{ CALENDAR_LINK }}">
+                                <div class="card-body">
+                                    <img class="card-img-top" src="https://cdn.svgporn.com/logos/google-calendar.svg" alt="Card image cap">  
+                                    <h3 class="card-title text-center">NECO Google Calendar</h3>              
+                                </div>
+                            </a> 
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+       
 
     </body>
 </html>
