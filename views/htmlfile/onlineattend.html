@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "./head.html" %}
+    <body>
+        <div class="container">
+
+               
+                    
+            <h1>オンライン出欠</h1>
+
+            <div class="alert alert-dismissible alert-primary">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>注意</strong>  出席は１台のデバイスにつき１つのログイン名しか送信できません.
+            </div>
+
+            <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-body">
+            <form method="post" action="/atdx/" name="send_attend">{% csrf_token %}
+            <div class="form-group">
+                <label class="col-form-label col-form-label-lg" for="inputLarge">ログイン名</label>
+                <input name="mtg_id" type="text" value={{ mtg_id }} hidden>
+                <input id="bw_id" name="bw_id" type="text" hidden>
+
+                <input id="login_name" name="dwqd2nj2" class="form-control form-control-lg" type="text" placeholder="ex. shotan" id="inputLarge">
+
+
+                <p></p>
+                <button type="submit" id="submit" class="btn btn-warning btn-lg btn-block">オンライン会議に移動</button>
+            </div>
+            </form>
+            </div>
+            </div>
+            </div>
+
+        </div>
+
+
+        {% include "./script.html" %}
+
+        <script>
+        var form = document.getElementById('login_name');
+        var submit = document.getElementById('submit');
+        var bwid = document.getElementById('bw_id');
+
+
+        var bw_id = "defualt_id";
+
+
+        function getBwID() {
+            var l = 25;
+            var c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+            var cl = c.length;
+            var r = "";
+            for(var i = 0; i < l; i++){
+                r += c[Math.floor(Math.random()*cl)];
+            }
+
+            return r
+        }
+
+        (window.onload = function() {
+            var login_name = localStorage.getItem("login_name");
+            bw_id = localStorage.getItem("bw_id");
+
+            if (bw_id) {
+                //
+            } else {
+                bw_id = getBwID();
+            }
+
+            if (login_name) {
+                form.value = login_name;
+            }
+        })();
+
+        submit.addEventListener('click', function() {
+            localStorage.setItem('bw_id', bw_id);
+            localStorage.setItem('login_name', form.value);
+            bwid.value = bw_id;
+
+            document.send_attend.submit();
+        });
+        </script>
+
+    </body>
+</html>

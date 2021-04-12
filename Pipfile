@@ -1,17 +1,11 @@
 [[source]]
-name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-
-[dev-packages]
-django-mirage = "*"
-pylint = "*"
-pylint-django = "*"
+name = "pypi"
 
 [packages]
 qrcode = "*"
 pillow = "*"
-psycopg2-binary = "*"
 gunicorn = "*"
 whitenoise = "*"
 django = "*"
@@ -23,6 +17,13 @@ channels = "*"
 dj-database-url = "*"
 requests = "*"
 pydrive = "*"
+psycopg2-binary = "*"
+django-initial-setup = "*"
+
+[dev-packages]
+mirage-django-lts = "*"
+pylint = "*"
+pylint-django = "*"
 
 [requires]
-python_version = "3.7.4"
+python_version = "3.9"

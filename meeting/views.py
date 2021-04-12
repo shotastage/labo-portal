@@ -33,6 +33,7 @@ class MeetingView(View):
 
         context = {
             'table_data': data,
+            'online_url': online_url,
         }
 
         return render(request, 'meeting/meeting.html', context)

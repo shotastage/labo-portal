@@ -2,6 +2,7 @@ from django.urls import path
 from manager.views import (
     ManageView,
     MeetingCreateView,
+    OnlineMeetingCreateView,
     MeetingDisableView,
     MeetingEnableView,
     QRShowView,
@@ -14,6 +15,7 @@ from manager.views import (
 urlpatterns = (
     path('', ManageView.as_view()),
     path('create/', MeetingCreateView.as_view()),
+    path('create_online/', OnlineMeetingCreateView.as_view()),
     path('disable/', MeetingDisableView.as_view()),
     path('enable/', MeetingEnableView.as_view()),
     path('attendances/', AttendacesListView.as_view()),

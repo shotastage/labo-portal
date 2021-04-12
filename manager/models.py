@@ -18,6 +18,7 @@ class Meetings(models.Model):
   # 時限
   period = models.IntegerField(default=6)
   due_date = models.DateTimeField(default=timezone.now)
+  is_online = models.BooleanField(default=True)
   campus = models.CharField(max_length = 255, default="")
   room = models.CharField(max_length = 255, default="")
   gas_url = models.CharField(max_length = 255, default="")
@@ -25,10 +26,13 @@ class Meetings(models.Model):
   elementaly_presenters = models.CharField(max_length = 500, default="")
   secondary_presenters = models.CharField(max_length = 500, default="")
   description = models.CharField(max_length = 1000, default="")
-
+  zoom_url = models.CharField(max_length = 255, default="")
+  webex_url = models.CharField(max_length = 255, default="")
 
 
 class Attendances(models.Model):
   mtg_id = models.CharField(max_length = 255)
   login_name = models.CharField(max_length = 255)
   attend = models.BooleanField()
+  mtg_ref = models.CharField(max_length = 10)
+

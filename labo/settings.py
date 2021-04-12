@@ -115,7 +115,6 @@ INSTALLED_APPS = [
     'mypage.apps.MypageConfig',
     'meeting.apps.MeetingConfig',
     'register.apps.RegisterConfig',
-    'setup.apps.SetupConfig',
     'app.apps.AppConfig',
     'enrollment.apps.EnrollmentConfig',
     'bgport.apps.BgportConfig',

@@ -21,8 +21,14 @@ class ManageView(View):
 
         data = Meetings.objects.all()
 
+        online_url = "https://" + settings.APPLICATION_URL + "/atdx/?mtg_id="
+
+        if settings.RUNNING_MODE == "devel":
+            online_url = "http://localhost:8000/atdx/?mtg_id="
+
         context = {
             'table_data': data,
+            'online_url': online_url,
         }
 
         return render(request, "htmlfile/manager.html", context)

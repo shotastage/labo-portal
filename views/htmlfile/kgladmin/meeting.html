@@ -1,9 +1,12 @@
                 
                   <div class="form-group">
-                        <a href="create/" class="btn btn-primary btn-lg"　style="margin-top: 10px;">新規MTG作成</a>
-                      </div>
-    
-                      <table class="table table-hover">
+                    
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <a href="create/" class="btn btn-success btn-lg">物理ミーティング作成</a>
+                      <a href="create_online/" class="btn btn-success btn-lg">オンラインミーティング作成</a>
+                    </div>
+                  </div>
+            <table class="table table-hover">
           <thead>
             <tr>
               <th scope="col">回数</th>
@@ -23,9 +26,36 @@
               <th scope="row">{{ data.time }}</th>
               <td>{{ data.mtg_id }}</td>
               <td>
-                <a href="show_qr/?mtg_id={{ data.mtg_id }}" class="btn btn-success">QR 表示</a>
+                {% if data.is_online %}
+
+                <button data-toggle="modal" data-target="#dialog" class="btn btn-success">オンライン参加URL表示</button>
+
+                <div id="dialog" class="modal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">アクセス用URL</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>このリンクを経由してアクセスすることで出席が記録されます</p>
+                                <p>
+                                    <h3><a href="{{ online_url|add:data.mtg_id }}">{{ online_url|add:data.mtg_id }}</a></h3>
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+                {% else %}
+                <a href="show_qr/?mtg_id={{ data.mtg_id }}" class="btn btn-success">オンキャンパスQR表示</a>
+                {% endif %}
                 <a href="attendances/?mtg_id={{ data.mtg_id }}" class="btn btn-warning">出席者一覧</a>
-                <a href="disable/?time={{ data.time }}" class="btn btn-info">GAS登録</a>
                 {% if data.active %}
                 <a href="disable/?time={{ data.time }}" class="btn btn-danger">〆切</a>
                 {% else %}
@@ -35,7 +65,7 @@
               </td>
             </tr>
             {% empty %}
-              <p>No meeting</p>
+              <p>まだミーティングが作成されていません</p>
             {% endfor %}
           </tbody>
         </table> 

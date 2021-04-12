@@ -1,11 +1,11 @@
-<form method="post" action="/kgl/create/">{% csrf_token %}
+<form method="post" action="/kgl/create_online/">{% csrf_token %}
     <div class="form-group">
         <label>時限</label>
         <select class="form-control" name="period">
             <option>1</option>
             <option>2</option>
             <option>3</option>
-            <option>4</option>
+            <option selected>4</option>
             <option>5</option>
             <option>6</option>
             <option>7</option>
@@ -29,28 +29,24 @@
             <input type="number" name="hour" class="form-control" style="width:70px;" placeholder="10">
             <label>時</label>
 
-            <input type="number" name="minu" class="form-control" style="width:70px;" placeholder="25">
+            <input type="number" name="minu" class="form-control" style="width:70px;" placeholder="25" value="00">
             <label>分</label>
 
         </div>
     </div>
-        
 
     <div class="form-group">
-        <label>場所</label>
-
-        <div class="form-inline">
-
-        <input type="text" class="form-control" name="campus" placeholder="キャンパス">
-        <input type="text" class="form-control" name="room" placeholder="教室">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label>スライドアップロードURL</label>
-        <input type="url" class="form-control" name="gas_url" placeholder="URLを入力">
-        <small class="form-text text-muted">CloudのURLもしくはGASのAppを指定できます.</small>
+        <label>Zoom参加URL</label>
+        <input type="url" class="form-control" name="zoom_url" placeholder="URLを入力">
+        <small class="form-text text-muted">Zoomで行う場合は参加URLを登録してください. 特にホストしない場合は空にしてください.</small>
     </div>        
+
+    <div class="form-group">
+        <label>WebEx参加URL</label>
+        <input type="url" class="form-control" name="webex_url" placeholder="URLを入力">
+        <small class="form-text text-muted">WebExで行う場合は参加URLを登録してください. 特にホストしない場合は空にしてください.</small>
+    </div>        
+
 
     <div class="form-group">
         <label>進捗発表者</label>
@@ -72,7 +68,7 @@
     <div class="form-check">
         <label class="form-check-label">
         <input class="form-check-input" name="is_slack" type="checkbox" value="1" checked="">
-        メーティング内容をDiscordに通知する
+        ミーティング内容をDiscordに通知する
         </label>
     </div>
 

@@ -28,4 +28,5 @@ urlpatterns = [
     path('kgl/', include('manager.urls')),
     path('kg/', include('enrollment.urls')),
     path('admin/', admin.site.urls),
+    path('', include('first_setup.urls')),
 ]

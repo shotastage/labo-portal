@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "./head.html" %}
+    <body>
+        <div class="container">
+        <br><br>
+
+        {% if is_error %}
+
+        <h2>エラーを解決してください.</h2>
+
+
+        <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4 class="alert-heading">{{ error_title }}</h4>
+            <p class="mb-0">{{ error_desc }}</p>
+        </div>
+
+        {% if error_title == "多重送信エラー" %}
+            <div class="alert alert-dismissible alert-light">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>ヒント</strong> フォームの再送信の警告メッセージが表示されませんでしたか？ その場合はすでに出欠は登録されています.
+            </div>
+
+            <div class="alert alert-dismissible alert-light">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>ヒント</strong> ログイン名を間違えて送信しましたか？ KGLにミスした出席を削除してもらってください.
+            </div>
+
+        {% endif %}
+        
+            
+        <div class="form-group">
+        </div>
+        {% else %}
+
+            <div class="form-group">
+                    <div class="col-md-6 offset-md-3">
+                            <div class="card">
+                                <div class="card-body">
+                <h2>出欠を記録しました</h2>
+                
+                {% if zoom_url != "" %}
+                    <a href="{{zoom_url}}" class="btn btn-primary btn-lg btn-block">Zoomで参加する</a>
+                {% endif%}
+                {% if webex_url != "" %}
+                <a href="{{webex_url}}/" class="btn btn-success btn-lg btn-block">WebExで参加する</a>
+                {% endif%}
+
+                </div></div></div>
+            </div>
+        {% endif %}
+        </div>
+            {% include "./script.html" %}
+
+    </body>
+</html>
