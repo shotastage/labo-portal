@@ -211,10 +211,19 @@ class OnlineAttendanceView(View):
 
         mtgs = Meetings.objects.filter(mtg_id=mtg_id)
 
+        zoom_url = ""
+        webex_url = ""
+
+        for mtg in mtgs:
+            if mtg.zoom_url != "" or mtg.zoom_url != None:
+                zoom_url = mtg.zoom_url
+            if mtg.webex_url != "" or mtg.webex_url != None:
+                webex_url = mtg.webex_url
+
         context = {
             'is_error': False,
-            'zoom_url': mtgs.get(pk=1).zoom_url,
-            'webex_url': mtgs.get(pk=1).webex_url,
+            'zoom_url': zoom_url,
+            'webex_url': webex_url,
         }
 
         try:
