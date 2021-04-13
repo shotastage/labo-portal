@@ -16,7 +16,27 @@
           </thead>
           <tbody>
             {% for data in table_data %}
-    
+            <div id="dialog{{data.mtg_id}}" class="modal">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title">アクセス用URL</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                          <p>このリンクを経由してアクセスすることで出席が記録されます</p>
+                          <p>
+                              <h3><a href="{{ online_url|add:data.mtg_id }}">{{ online_url|add:data.mtg_id }}</a></h3>
+                          </p>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
             {% if data.active %}
             <tr class="table-primary">
             {% else %}
@@ -28,30 +48,9 @@
               <td>
                 {% if data.is_online %}
 
-                <button data-toggle="modal" data-target="#dialog" class="btn btn-success">オンライン参加URL表示</button>
+                <button data-toggle="modal" data-target="#dialog{{data.mtg_id}}" class="btn btn-success">オンライン参加URL表示</button>
+                <a href="scan_discord/?mtg_id={{ data.mtg_id }}" class="btn btn-success" style="background:#7289DA;border-color: #7289DA;">Discordから出席者をスキャン</a>
 
-                <div id="dialog" class="modal">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">アクセス用URL</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>このリンクを経由してアクセスすることで出席が記録されます</p>
-                                <p>
-                                    <h3><a href="{{ online_url|add:data.mtg_id }}">{{ online_url|add:data.mtg_id }}</a></h3>
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-           
                 {% else %}
                 <a href="show_qr/?mtg_id={{ data.mtg_id }}" class="btn btn-success">オンキャンパスQR表示</a>
                 {% endif %}
