@@ -19,6 +19,8 @@ requests = "*"
 pydrive = "*"
 psycopg2-binary = "*"
 django-initial-setup = "*"
+discord-py = "*"
+asyncio = "*"
 
 [dev-packages]
 mirage-django-lts = "*"
