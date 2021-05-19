@@ -13,6 +13,7 @@ def get_next():
 class Meetings(models.Model):
   mtg_id = models.CharField(max_length = 255)
   time = models.IntegerField(default=get_next)
+  title = models.CharField(max_length = 255, default="None title")
   active = models.BooleanField(default=True)
 
   # 時限

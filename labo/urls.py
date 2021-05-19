@@ -27,6 +27,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('kgl/', include('manager.urls')),
     path('kg/', include('enrollment.urls')),
+    path('bot_integrate/', include('discordi.urls')),
     path('admin/', admin.site.urls),
     path('', include('first_setup.urls')),
 ]

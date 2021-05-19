@@ -112,6 +112,7 @@ if RUNNING_MODE == "devel":
 # Application definition
 
 INSTALLED_APPS = [
+    'discordi.apps.DiscordiConfig',
     'mypage.apps.MypageConfig',
     'meeting.apps.MeetingConfig',
     'register.apps.RegisterConfig',
