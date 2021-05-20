@@ -10,6 +10,7 @@
           <thead>
             <tr>
               <th scope="col">回数</th>
+              <th scope="col">タイトル</th>
               <th scope="col">Meeting ID</th>
               <th scope="col">操作メニュー</th>
             </tr>
@@ -18,25 +19,25 @@
             {% for data in table_data %}
             <div id="dialog{{data.mtg_id}}" class="modal">
               <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <h5 class="modal-title">アクセス用URL</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                          </button>
-                      </div>
-                      <div class="modal-body">
-                          <p>このリンクを経由してアクセスすることで出席が記録されます</p>
-                          <p>
-                              <h3><a href="{{ online_url|add:data.mtg_id }}">{{ online_url|add:data.mtg_id }}</a></h3>
-                          </p>
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-                      </div>
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">アクセス用URL</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                   </div>
+                  <div class="modal-body">
+                    <p>このリンクを経由してアクセスすることで出席が記録されます</p>
+                    <p>
+                      <h3><a href="{{ online_url|add:data.mtg_id }}">{{ online_url|add:data.mtg_id }}</a></h3>
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                  </div>
+                </div>
               </div>
-          </div>
+            </div>
             {% if data.active %}
             <tr class="table-primary">
             {% else %}
@@ -44,6 +45,7 @@
             {% endif %}
     
               <th scope="row">{{ data.time }}</th>
+              <td>{{ data.title }}</td>
               <td>{{ data.mtg_id }}</td>
               <td>
                 {% if data.is_online %}

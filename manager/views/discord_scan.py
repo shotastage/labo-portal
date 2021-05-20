@@ -12,7 +12,6 @@ from django.contrib.auth.models import User
 from uuid import uuid4
 from manager.models import Meetings
 from django.conf import settings
-from discordapp.voice_mtg_scanner import scan
 from datetime import datetime
 
 
@@ -20,24 +19,3 @@ from datetime import datetime
 import requests, json
 
 
-
-class DiscordScan(View):
-
-    @method_decorator(staff_member_required(login_url='/login'))
-    def get(self, request):
-
-        data = Meetings.objects.all()
-
-        online_url = "https://" + settings.APPLICATION_URL + "/atdx/?mtg_id="
-
-        if settings.RUNNING_MODE == "devel":
-            online_url = "http://localhost:8000/atdx/?mtg_id="
-
-        context = {
-            'table_data': data,
-            'online_url': online_url,
-        }
-
-        scan()
-
-        return render(request, "htmlfile/discordscan.html", context)

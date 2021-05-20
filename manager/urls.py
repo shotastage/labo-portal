@@ -6,7 +6,6 @@ from manager.views import (
     MeetingDisableView,
     MeetingEnableView,
     QRShowView,
-    DiscordScan,
     AttendacesListView,
     PresentationStatusRegisterView,
     AttendanceDeleteView,
@@ -21,7 +20,6 @@ urlpatterns = (
     path('enable/', MeetingEnableView.as_view()),
     path('attendances/', AttendacesListView.as_view()),
     path('show_qr/', QRShowView.as_view()),
-    path('scan_discord/', DiscordScan.as_view()),
     path('record_presentation_status/', PresentationStatusRegisterView.as_view()),
     path('attendance_delete/', AttendanceDeleteView.as_view()),
     path('attendance_enable/', AttendanceReEnableView.as_view())
