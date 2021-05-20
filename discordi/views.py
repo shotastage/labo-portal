@@ -27,13 +27,6 @@ class APISubmitView(View):
 
             atd.save()
 
-
-            new = Attendances.objects.submit_new(
-                contents = str(body)
-            )
-            new.save()
-
-
             return HttpResponse("Successful created new api doc!", status=201)
             send_notification(request)
         else:
