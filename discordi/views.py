@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic import View
 from manager.models import Attendances
 import os
+from django.http import HttpResponse
+
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 
