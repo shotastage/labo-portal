@@ -16,10 +16,9 @@ class APISubmitView(View):
     def post(self, request):
         body = request.body.decode('utf-8')
 
-
         atd = Attendances(
             login = str(body),
-            mtg_id = "7a450d05-1e49-4f45-a6f0-9eec9159fe01",
+            mtg_id = "c2e61475-bf0e-4fa1-b93a-9671e6642080",
             bw_id = "",
             ip_address = "",
             attend = True,
