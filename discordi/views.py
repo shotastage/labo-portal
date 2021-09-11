@@ -18,7 +18,7 @@ class APISubmitView(View):
 
         atd = Attendances(
             login = str(body),
-            mtg_id = "221c053f-0b43-46d0-b85e-cc10af957e0c",
+            mtg_id = "0106bb5f-e842-49c0-86b9-b3882fdee26d",
             bw_id = "",
             ip_address = "",
             attend = True,
