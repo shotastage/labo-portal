@@ -222,7 +222,6 @@
         "discord-py": {
             "hashes": [
                 "sha256:399b80d576a63fa901300e80080568e1d9cd9c21260ca622fd7145c0009278fa"
-                "sha256:399b80d576a63fa901300e80080568e1d9cd9c21260ca622fd7145c0009278fa"
             ],
             "index": "pypi",
             "version": "==1.7.1"
