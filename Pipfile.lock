@@ -305,6 +305,19 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==2.40.0"
+                "sha256:3c9f0c539281529e26cc5631dba911ded66e27ed91f269b58fc4eb53d4b81ce8",
+                "sha256:56551465be3e42966cfcb6f9243caf60aa79d023b763351876cf9702735132f4"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==2.6.0"
+        },
+        "google-api-python-client": {
+            "hashes": [
+                "sha256:401169215ecafb5afb683d3fe0e43c059eb625c71fea1929f16403dda72a2dc1",
+                "sha256:69c73c2e206995839b2145255e8348bfb28ad825fae4c01e9db36d5856f0c770"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==2.39.0"
         },
         "google-auth": {
             "hashes": [
@@ -730,13 +743,14 @@
         },
         "twisted": {
             "extras": [
-                "tls"
+
             ],
             "hashes": [
                 "sha256:57f32b1f6838facb8c004c89467840367ad38e9e535f8252091345dba500b4f2",
                 "sha256:5c63c149eb6b8fe1e32a0215b1cef96fabdba04f705d8efb9174b1ccf5b49d49"
             ],
             "markers": "python_full_version >= '3.6.7'",
+            "index": "pypi",
             "version": "==22.2.0"
         },
         "txaio": {
